@@ -9,14 +9,18 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "glob": "^10.3.15",
     "next": "14.2.3",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "serialize-javascript": "^6.0.2",
+    "shiki": "^1.6.0"
   },
   "devDependencies": {
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@types/serialize-javascript": "^5.0.4",
     "eslint": "^8",
     "eslint-config-next": "14.2.3",
     "nodemon": "^3.1.0",

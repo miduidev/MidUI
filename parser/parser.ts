@@ -1,6 +1,16 @@
 import fs from "fs";
 import path from "path";
 import { glob } from "glob";
+import { getHighlighter } from "shiki";
+import serialize from "serialize-javascript";
+
+type FileMap = Record<
+  string,
+  {
+    importId: string | null;
+    files: string[];
+  }
+>;
 
 const main = async () => {
   const BASE_DIR = path.resolve(`${process.cwd()}/data`);
@@ -8,7 +18,7 @@ const main = async () => {
   const files = await glob(BASE_DIR + "/**/*.{jsx,tsx,html,vue}");
   const data: string[] = [];
   const names: string[] = [];
-    const map: any = {};
+  const map: FileMap = {};
   let i = 0;
 
   for (const file of files) {
@@ -17,7 +27,9 @@ const main = async () => {
     if (path.basename(file) === "info.tsx") {
       console.log("../data" + file.replace(BASE_DIR, ""));
       data.push(
-        `import ${"n" + i} from '@/data${file.replace(BASE_DIR, "").replace(/\.[^/.]+$/, "")}';`
+        `import ${"n" + i} from '@/data${file
+          .replace(BASE_DIR, "")
+          .replace(/\.[^/.]+$/, "")}';`
       );
 
       if (!map[dirName]) {
@@ -36,7 +48,10 @@ const main = async () => {
     i++;
   }
 
-  console.log(map);
+  const highlighter = await getHighlighter({
+    themes: ["material-theme-darker"],
+    langs: ["javascript"],
+  });
 
   for (const dd of Object.entries(map)) {
     const { importId, files } = dd[1];
@@ -45,18 +60,28 @@ const main = async () => {
       return;
     }
 
+    const contents: string[] = [];
+
     for (const file of files) {
       const fileContent = fs.readFileSync(file.substring(1, file.length - 1), {
         encoding: "utf-8",
       });
-        console.log(fileContent);
+
+      const html = highlighter.codeToHtml(fileContent, {
+        lang: "javascript",
+        theme: "material-theme-darker",
+      });
+
+      contents.push(serialize(html));
     }
     names.push(
-      `{metadata : ${importId}, files : [${files.join(",\n")}]}`
+      `{metadata : ${importId}, code: [${contents.join(
+        ",\n"
+      )}], files : [${files.join(",\n")}]}`
     );
   }
 
-  data.push(`export default [${names.join(",\n")}]`);
+  data.push(`export const components = [${names.join(",\n")}]`);
 
   fs.writeFileSync(path.resolve("./lib/emitter.ts"), data.join("\n"));
 };
