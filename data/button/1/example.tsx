@@ -1,4 +1,4 @@
-const Component = () => {
+export default function Button() {
   return (
     <div className="z-[10] flex gap-[15px]">
       <button className="bg-[#1565C0] font-poppins rounded-[6px] px-[24px] py-[10px]">
@@ -18,6 +18,4 @@ const Component = () => {
       </button>
     </div>
   );
-};
-
-export default Component;
+}

@@ -91,7 +91,7 @@ const main = async () => {
 
   data.push(`export const components = [${names.join(",\n")}]`);
   data.push(
-    `export const categories = ${JSON.stringify(Array.from(categories))}`
+    `export const categories = ${JSON.stringify(Array.from(categories).sort())}`
   );
 
   fs.writeFileSync(path.resolve("./lib/emitter.ts"), data.join("\n"));
