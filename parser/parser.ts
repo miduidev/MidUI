@@ -3,6 +3,7 @@ import path from "path";
 import { glob } from "glob";
 import { getHighlighter } from "shiki";
 import serialize from "serialize-javascript";
+import { Metadata } from "@/lib/types";
 
 type FileMap = Record<
   string,
@@ -20,6 +21,7 @@ const main = async () => {
   const names: string[] = [];
   const map: FileMap = {};
   let i = 0;
+  const categories = new Set<string>();
 
   for (const file of files) {
     const dirName = path.dirname(file);
@@ -31,6 +33,12 @@ const main = async () => {
           .replace(BASE_DIR, "")
           .replace(/\.[^/.]+$/, "")}';`
       );
+
+      const { default: Comp } = (await import(
+        `@/data${file.replace(BASE_DIR, "")}`
+      )) as { default: Metadata };
+
+      categories.add(Comp.category);
 
       if (!map[dirName]) {
         map[dirName] = { files: [], importId: "n" + i };
@@ -82,6 +90,9 @@ const main = async () => {
   }
 
   data.push(`export const components = [${names.join(",\n")}]`);
+  data.push(
+    `export const categories = ${JSON.stringify(Array.from(categories))}`
+  );
 
   fs.writeFileSync(path.resolve("./lib/emitter.ts"), data.join("\n"));
 };

@@ -1,10 +1,18 @@
-import React from 'react'
+import React from "react";
+import SideNav from "../_components/docs/side-nav";
 
-const layout = ({ children }: Readonly<{children : React.ReactNode}>) => {
-    return (
-      // Side Navbar
-      <div>{children}</div>
-  )
-}
+const Layout = ({
+  children,
+}: Readonly<{ children: React.ReactNode; params: { category: string } }>) => {
+  return (
+    <div className="flex-1 w-full bg-[#141414] font-poppins h-full">
+      <div className="flex container mx-auto h-full">
+        <SideNav />
 
-export default layout;
+        {children}
+      </div>
+    </div>
+  );
+};
+
+export default Layout;

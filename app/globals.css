@@ -2,24 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
-
 .animated-hero-text-bg {
-    background-size: 400%;
+  background-size: 400%;
 
-    -webkit-animation: animation 3s ease infinite;
-    -moz-animation: animation 3s ease infinite;
-    animation: animation 3s ease infinite;
+  -webkit-animation: animation 3s ease infinite;
+  -moz-animation: animation 3s ease infinite;
+  animation: animation 3s ease infinite;
 }
 
 @keyframes animation {
-    0%,
-    100% {
-        background-position: 0% 50%;
-    }
-    
-    50% {
-        background-position: 100% 50%;
-    }
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
 }
 
 ::selection {
@@ -48,16 +47,46 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
+  /* background: linear-gradient(
       to bottom,
       transparent,
       rgb(var(--background-end-rgb))
     )
-    rgb(var(--background-start-rgb));
+    rgb(var(--background-start-rgb)); */
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+.shiki {
+  overflow: auto;
+  font-size: 14px;
+}
+
+code {
+  counter-reset: step;
+  counter-increment: step 0;
+}
+
+code .line::before {
+  content: counter(step);
+  counter-increment: step;
+  width: 1rem;
+  margin-right: 1.5rem;
+  display: inline-block;
+  text-align: right;
+  color: rgba(115, 138, 148, 0.4);
+}
+
+.gradient-06 {
+  position: absolute;
+  width: 404px;
+  height: 800px;
+  background: rgba(0, 179, 255, 0.35);
+
+  filter: blur(200px);
+  transform: rotate(-111deg);
 }

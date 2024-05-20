@@ -1,10 +1,11 @@
+import { Metadata } from "@/lib/types";
 import Component from "./example";
 
 const metadata = {
-  title: "Buttons",
-  description: "This is a primary button!!!!",
+  title: "Button",
+  description: "Component that looks and acts like a button!",
   category: "button",
   component: Component,
-};
+} satisfies Metadata;
 
 export default metadata;
