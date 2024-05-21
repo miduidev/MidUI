@@ -5,7 +5,7 @@ import { ArrowRightCircleIcon } from "@heroicons/react/24/outline";
 export default function Home() {
   return (
     <main className="flex-1 flex justify-between px-10 h-full items-center mb-20 container mx-auto relative">
-      <div className="gradient-06 z-0"></div>
+      <div className="gradient-06 -z-40"></div>
       <div className="flex flex-col text-6xl font-bold justify-center leading-tight">
         <TailwindBadge />
         <h1 className="opacity-90 tracking-tight">Free modern</h1>
