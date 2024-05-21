@@ -7,7 +7,7 @@ const Layout = ({
   return (
     <div className="flex-1 w-full bg-[#141414] font-poppins h-full">
       <div className="flex container mx-auto h-full">
-        <SideNav />
+        <SideNav className="hidden md:block lg:block" />
 
         {children}
       </div>

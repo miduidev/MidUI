@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <main className="flex-1 flex justify-between px-10 h-full items-center mb-20 container mx-auto relative">
       <div className="gradient-06 z-0"></div>
-      <div className="flex flex-col text-7xl font-bold justify-center leading-tight">
+      <div className="flex flex-col text-6xl font-bold justify-center leading-tight tracking-tight">
         <TailwindBadge />
         <h1 className="opacity-90">Free modern</h1>
         <h1 className="opacity-90">Open source</h1>
@@ -21,7 +21,7 @@ export default function Home() {
           </div>
         </h1>
 
-        <button className="text-lg font-semibold self-start mt-8 px-5 py-3 flex items-center space-x-2 border-[#1565C0] border-2 rounded-full transition-all duration-150 hover:scale-105 hover:bg-[#1565C0]">
+        <button className="text-lg font-medium self-start mt-8 px-5 py-3 flex items-center space-x-2 border-[#1565C0] border-2 rounded-full transition-all duration-150 hover:scale-105 hover:bg-[#1565C0]">
           <span>Browse Components</span>
           <ArrowRightCircleIcon className="size-8" />
         </button>

@@ -5,16 +5,16 @@ function Input() {
   return (
     <div
       className={cn(
-        "rounded-[10px] border border-[#27272A]",
-        "px-[20px] py-[15px] gap-[10px]",
+        "rounded-[10px] border-2 border-[#27272A]",
+        "px-[20px] py-[10px] gap-[10px]",
         "flex items-center justify-center",
-        "relative max-w-max"
+        "relative max-w-max focus-within:border-[#1565C0] transition-colors"
       )}
     >
       <SearchIcon />
       <input
         type="text"
-        className="w-full placeholder:text-[#545353] bg-transparent outline-none"
+        className="w-full placeholder:text-[#545353] bg-transparent outline-none group"
         placeholder="Search"
       />
 

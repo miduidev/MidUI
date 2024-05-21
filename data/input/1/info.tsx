@@ -1,11 +1,11 @@
 import { Metadata } from "@/lib/types";
-import Component from "./example";
+import { Input } from "./example";
 
 const metadata = {
   title: "Input",
   description: "An input element",
   category: "input",
-  component: Component,
+  component: Input,
 } satisfies Metadata;
 
 export default metadata;

@@ -1,13 +1,17 @@
 "use client";
 
-import { useParams, usePathname } from "next/navigation";
+import { useParams } from "next/navigation";
 import Input from "./input";
 import { cn } from "@/utils/cn";
 import { categories } from "@/lib/emitter";
 import Link from "next/link";
-import { useMemo } from "react";
+import { ClassNameValue } from "tailwind-merge";
 
-const SideNav = () => {
+type SideNavProps = {
+  className?: ClassNameValue;
+};
+
+const SideNav = ({ className }: SideNavProps) => {
   const { category } = useParams() as { category?: string };
 
   const transformCategory = (c: string) => {
@@ -21,7 +25,7 @@ const SideNav = () => {
   };
 
   return (
-    <div className="sticky top-0 h-max pt-10">
+    <div className={cn("sticky top-0 h-max pt-10 shrink-0 ", className)}>
       <Input />
 
       <h2 className="mt-8 font-semibold text-[20px] underline mb-3">

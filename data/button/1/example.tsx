@@ -1,6 +1,6 @@
 export default function Button() {
   return (
-    <div className="z-[10] flex gap-[15px]">
+    <div className="z-[10] flex gap-[15px] min-w-max">
       <button className="bg-[#1565C0] font-poppins rounded-[6px] px-[24px] py-[10px]">
         Click Me
       </button>

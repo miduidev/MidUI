@@ -57,8 +57,8 @@ const main = async () => {
   }
 
   const highlighter = await getHighlighter({
-    themes: ["material-theme-darker"],
-    langs: ["javascript"],
+    themes: ["vitesse-dark"],
+    langs: ["typescript"],
   });
 
   for (const dd of Object.entries(map)) {
@@ -76,8 +76,8 @@ const main = async () => {
       });
 
       const html = highlighter.codeToHtml(fileContent, {
-        lang: "javascript",
-        theme: "material-theme-darker",
+        lang: "typescript",
+        theme: "vitesse-dark",
       });
 
       contents.push(serialize(html));

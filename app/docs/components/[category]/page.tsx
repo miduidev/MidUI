@@ -18,7 +18,10 @@ const ComponentPage = ({ params }: PageProps) => {
 
   return (
     <div
-      className={cn("px-8 pt-16 pb-5 flex flex-col", "gap-12 max-w-[800px]")}
+      className={cn(
+        "px-8 pt-10 md:pt-16 lg:pt-16 pb-5 flex flex-col",
+        "gap-12 min-w-0"
+      )}
     >
       {matchingComps.map((comp, i) => (
         <div key={i} className="flex flex-col gap-12">
@@ -26,15 +29,16 @@ const ComponentPage = ({ params }: PageProps) => {
             <h1 className="font-bold text-4xl scroll-m-20">
               {comp.metadata.title}
             </h1>
-            <p className="text-[#CECECE] text-[16px]">
-              {comp.metadata.description}
-            </p>
+            <p className="text-gray-400 text-md">{comp.metadata.description}</p>
           </div>
 
           <div className="space-y-5">
-            <h2 className="font-semibold text-2xl">Usage</h2>
+            <h2 className="font-semibold text-2xl space-y-3">
+              <span>Example</span>
+              <div className="w-full border-[0.5px] border-[#27272A]"></div>
+            </h2>
 
-            <div className="px-[50px] py-[20px] bg-[#111111] rounded-[10px] relative overflow-hidden">
+            <div className="px-[50px] py-[20px] bg-[#111111] rounded-[10px] relative overflow-x-auto overflow-y-hidden">
               <comp.metadata.component />
             </div>
 
@@ -42,7 +46,7 @@ const ComponentPage = ({ params }: PageProps) => {
               <div className="flex flex-col" key={fileName}>
                 <div
                   className={cn(
-                    "rounded-t-[10px] bg-[#212121] px-[20px]",
+                    "rounded-t-[10px] bg-[#121212] px-[20px]",
                     "py-[12px] text-[#FFFDFD] font-ibm",
                     "flex items-center justify-between"
                   )}
@@ -59,7 +63,7 @@ const ComponentPage = ({ params }: PageProps) => {
                   </div>
                 </div>
 
-                <div className="flex flex-col p-[16px] bg-[#212121] rounded-[10px] rounded-t-none">
+                <div className="flex flex-col p-[16px] bg-[#121212] rounded-[10px] rounded-t-none">
                   <div
                     dangerouslySetInnerHTML={{
                       __html: comp.code[i],

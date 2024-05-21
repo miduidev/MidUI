@@ -15,7 +15,7 @@ function Navbar({ transparent = false }: { transparent?: boolean }) {
         pathname.startsWith("/docs") ? "bg-[#141414]" : "bg-transparent"
       } z-10 `}
     >
-      <div className="w-full flex items-center container mx-auto justify-between p-5">
+      <div className="w-full flex items-center container mx-auto justify-between px-5 py-4">
         <Link href="/" className="flex items-center justify-center gap-2">
           <Logo />
           <h1 className="font-bold text-[22px] mt-1">MidUI</h1>
