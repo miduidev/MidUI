@@ -6,6 +6,7 @@ import { cn } from "@/utils/cn";
 import { categories } from "@/lib/emitter";
 import Link from "next/link";
 import { ClassNameValue } from "tailwind-merge";
+import { transformCategory } from "@/utils";
 
 type SideNavProps = {
   className?: ClassNameValue;
@@ -13,16 +14,6 @@ type SideNavProps = {
 
 const SideNav = ({ className }: SideNavProps) => {
   const { category } = useParams() as { category?: string };
-
-  const transformCategory = (c: string) => {
-    const words = c.split(" ");
-
-    for (let i = 0; i < words.length; i++) {
-      words[i] = words[i][0].toUpperCase() + words[i].substr(1);
-    }
-
-    return words.join(" ");
-  };
 
   return (
     <div className={cn("sticky top-0 h-max pt-10 shrink-0 ", className)}>

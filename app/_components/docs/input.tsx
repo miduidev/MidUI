@@ -8,13 +8,13 @@ function Input() {
         "rounded-[10px] border-2 border-[#27272A]",
         "px-[20px] py-[10px] gap-[10px]",
         "flex items-center justify-center",
-        "relative max-w-max focus-within:border-[#1565C0] transition-colors"
+        "relative w-max focus-within:border-[#1565C0] transition-colors"
       )}
     >
-      <SearchIcon />
+      <SearchIcon className="w-3 h-auto" />
       <input
         type="text"
-        className="w-full placeholder:text-[#545353] bg-transparent outline-none group"
+        className="w-28 placeholder:text-[#545353] bg-transparent outline-none group"
         placeholder="Search"
       />
 

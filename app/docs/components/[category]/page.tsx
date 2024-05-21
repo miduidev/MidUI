@@ -1,12 +1,21 @@
 import { components } from "@/lib/emitter";
 import { notFound } from "next/navigation";
 import { cn } from "@/utils/cn";
-import { getCodeIcon } from "@/utils";
+import { getCodeIcon, transformCategory } from "@/utils";
 import path from "path-browserify";
+import { Metadata } from "next";
 
 type PageProps = {
   params: { category: string };
 };
+
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
+  return {
+    title: transformCategory(params.category) + " - MidUI",
+  };
+}
 
 const ComponentPage = ({ params }: PageProps) => {
   const matchingComps = components.filter(

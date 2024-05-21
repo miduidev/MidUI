@@ -1,5 +1,10 @@
 import React from "react";
 import SideNav from "../_components/docs/side-nav";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Docs",
+};
 
 const Layout = ({
   children,
