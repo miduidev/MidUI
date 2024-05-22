@@ -9,9 +9,11 @@ export const GET = async (
   _: NextRequest,
   { params: { category } }: { params: { category: string } }
 ) => {
-  const font = await fetch("http://localhost:3000/Poppins-Bold.ttf").then(
-    (res) => res.arrayBuffer()
-  );
+  const font = await fetch(
+    process.env.VERCEL_URL
+      ? `https://${process.env.VERCEL_URL}`
+      : "http://localhost:3000/Poppins-Bold.ttf"
+  ).then((res) => res.arrayBuffer());
 
   try {
     return new ImageResponse(
