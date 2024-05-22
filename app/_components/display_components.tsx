@@ -5,7 +5,7 @@ const poppins = Poppins({subsets : ["latin"] , weight : "400"})
 
 const DisplayCompoents = () => {
   return (
-      <div className={`flex flex-col ${poppins.className}`}>
+      <div className={`flex-col hidden md:flex md:translate-x-1/4 lg:translate-x-0 ${poppins.className}`}>
           <div className="flex justify-end gap-4">
             <div className="flex flex-col space-y-2 items-end mt-10">
                   <div className="border border-[#1E1E1E] rounded-md flex items-center w-48 text-sm">

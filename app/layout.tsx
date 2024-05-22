@@ -39,7 +39,7 @@ export default function RootLayout({
       className={`${mono.variable} ${poppins.variable} overflow-hidden h-full`}
     >
       <body
-        className={`${inter.className} relative bg-black h-full overflow-auto`}
+        className={`${inter.className} relative bg-black h-full overflow-x-hidden overflow-y-auto`}
       >
         <div className="-z-40 fixed h-full w-full bg-[linear-gradient(#ffffff_1px,transparent_1px)] opacity-5 [background-size:16px_16px] [mask-image:radial-gradient(ellipse_at_center,black,transparent_90%)]"></div>
         <div className="-z-40 fixed h-full w-full bg-[linear-gradient(90deg,#ffffff_1px,transparent_1px)] opacity-5 [background-size:16px_16px] [mask-image:radial-gradient(ellipse_at_center,black,transparent_90%)]"></div>
