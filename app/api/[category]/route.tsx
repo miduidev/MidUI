@@ -1,30 +1,44 @@
-import { components } from "@/lib/emitter";
 import { ImageResponse } from "next/og";
 import Logo from "@/assets/logo.svg";
 import { NextRequest } from "next/server";
+import { transformCategory } from "@/utils";
 
+export const runtime = "edge";
 
 export const GET = async (
-  req: NextRequest,
+  _: NextRequest,
   { params: { category } }: { params: { category: string } }
 ) => {
-  const comp = components.find(
-    (c) => c.metadata.category.toLowerCase() === category.toLowerCase()
+  const font = await fetch("http://localhost:3000/Poppins-Bold.ttf").then(
+    (res) => res.arrayBuffer()
   );
-
-  if (!comp) return;
 
   try {
     return new ImageResponse(
       (
         <div tw="flex flex-col items-center justify-center bg-white h-full w-full bg-[#141414] text-white">
-          <p>{comp.metadata.description}</p>
           <div tw="flex items-center justify-center gap-2">
-            <Logo />
-            <h1 tw="text-6xl">{category} - MidUI</h1>
+            <Logo
+              style={{
+                width: 100,
+                height: 100,
+              }}
+            />
+            <h1 tw="text-6xl mb-1  ml-2" style={{ fontFamily: "poppins" }}>
+              {transformCategory(category)} - MidUI
+            </h1>
           </div>
         </div>
-      )
+      ),
+      {
+        fonts: [
+          {
+            name: "poppins",
+            data: font,
+            style: "normal",
+          },
+        ],
+      }
     );
   } catch (e) {
     console.log(e);

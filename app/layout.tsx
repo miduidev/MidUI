@@ -2,14 +2,29 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/app/_components/navbar";
 import { inter, mono, poppins } from "@/lib/fonts";
+import { siteConfig } from "@/lib/config";
 
 export const metadata: Metadata = {
-  title: {
-    default: "MidUI - Modern UI Kit",
-    template: "%s - Modern UI Kit ",
+  metadataBase: new URL(
+    process.env.VERCEL_URL
+      ? `https://${process.env.VERCEL_URL}`
+      : "http://localhost:3000"
+  ),
+  title: siteConfig.title,
+  description: siteConfig.description,
+  openGraph: {
+    type: "website",
+    title: siteConfig.title.default,
+    description: siteConfig.description,
+    images: "/api/explore",
   },
-  description:
-    "MidUI modern tailwindcss copy paste components, supports React,HTML,Vue.",
+  twitter: {
+    card: "summary_large_image",
+    title: siteConfig.title,
+    description: siteConfig.description,
+    images: ["/api/explore"],
+    creator: "@shadcn",
+  },
 };
 
 export default function RootLayout({

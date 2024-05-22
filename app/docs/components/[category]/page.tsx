@@ -12,8 +12,28 @@ type PageProps = {
 export async function generateMetadata({
   params,
 }: PageProps): Promise<Metadata> {
+  const title = transformCategory(params.category) + " - MidUI";
+  const description = `Checkout ${params.category} component at MidUI`;
   return {
-    title: transformCategory(params.category) + " - MidUI",
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      type: "article",
+      images: [
+        {
+          url: `/api/${params.category}`,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: title,
+      description: description,
+      images: [`/api/${params.category}`],
+      creator: "@shadcn",
+    },
   };
 }
 
