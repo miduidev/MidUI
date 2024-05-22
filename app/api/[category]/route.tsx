@@ -10,9 +10,7 @@ export const GET = async (
   { params: { category } }: { params: { category: string } }
 ) => {
   const font = await fetch(
-    process.env.VERCEL_URL
-      ? `https://${process.env.VERCEL_URL}`
-      : "http://localhost:3000/Poppins-Bold.ttf"
+    "https://mid-ui-git-dev-mid-ui.vercel.app/Poppins-Bold.ttf"
   ).then((res) => res.arrayBuffer());
 
   try {

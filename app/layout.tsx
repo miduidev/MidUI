@@ -5,11 +5,7 @@ import { inter, mono, poppins } from "@/lib/fonts";
 import { siteConfig } from "@/lib/config";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(
-    process.env.VERCEL_URL
-      ? `https://${process.env.VERCEL_URL}`
-      : "http://localhost:3000"
-  ),
+  metadataBase: new URL("https://mid-ui-git-dev-mid-ui.vercel.app"),
   title: siteConfig.title,
   description: siteConfig.description,
   openGraph: {
