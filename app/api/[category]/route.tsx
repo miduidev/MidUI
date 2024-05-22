@@ -9,10 +9,6 @@ export const GET = async (
   _: NextRequest,
   { params: { category } }: { params: { category: string } }
 ) => {
-  const font = await fetch(
-    "https://mid-ui-git-dev-mid-ui.vercel.app/Poppins-Bold.ttf"
-  ).then((res) => res.arrayBuffer());
-
   try {
     return new ImageResponse(
       (
@@ -24,21 +20,12 @@ export const GET = async (
                 height: 100,
               }}
             />
-            <h1 tw="text-6xl mb-1  ml-2" style={{ fontFamily: "poppins" }}>
+            <h1 tw="text-6xl mb-1  ml-2">
               {transformCategory(category)} - MidUI
             </h1>
           </div>
         </div>
-      ),
-      {
-        fonts: [
-          {
-            name: "poppins",
-            data: font,
-            style: "normal",
-          },
-        ],
-      }
+      )
     );
   } catch (e) {
     console.log(e);
