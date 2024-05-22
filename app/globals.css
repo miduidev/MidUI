@@ -90,3 +90,23 @@ code .line::before {
   filter: blur(200px);
   transform: rotate(-111deg);
 }
+
+.command-palette-content .bg-gray-900 {
+  background-color: rgba(0, 0, 0, 0.8) !important;
+}
+
+.command-palette .dark\:bg-gray-900 {
+  background-color: black !important;
+}
+
+.command-palette-list-item:hover {
+  background-color: rgba(55, 175, 247, 0.7) !important;
+}
+
+.command-palette .bg-gray-200\/50 {
+  background-color: rgba(55, 175, 247, 0.7) !important;
+}
+
+.command-palette .text-gray-500 {
+  color: white !important;
+}

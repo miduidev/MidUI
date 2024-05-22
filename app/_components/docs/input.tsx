@@ -11,7 +11,7 @@ function Input() {
         "relative w-max focus-within:border-[#1565C0] transition-colors"
       )}
     >
-      <SearchIcon className="w-3 h-auto" />
+      <SearchIcon className="w-4 h-4" />
       <input
         type="text"
         className="w-28 placeholder:text-[#545353] bg-transparent outline-none group"

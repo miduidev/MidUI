@@ -3,9 +3,14 @@ import "./globals.css";
 import Navbar from "@/app/_components/navbar";
 import { inter, mono, poppins } from "@/lib/fonts";
 import { siteConfig } from "@/lib/config";
+import { CommandMenu } from "./_components/command-menu";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://mid-ui-git-dev-mid-ui.vercel.app"),
+  metadataBase: new URL(
+    process.env.VERCEL_URL
+      ? `https://${process.env.VERCEL_URL}`
+      : "http://localhost:3000"
+  ),
   title: siteConfig.title,
   description: siteConfig.description,
   openGraph: {
@@ -41,6 +46,7 @@ export default function RootLayout({
         <div className="flex flex-col min-h-screen min-w-screen relative">
           <Navbar />
           {children}
+          <CommandMenu />
         </div>
       </body>
     </html>
