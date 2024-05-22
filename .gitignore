@@ -22,6 +22,7 @@ lib/emitter.ts
 # misc
 .DS_Store
 *.pem
+.idx/
 
 # debug
 npm-debug.log*
