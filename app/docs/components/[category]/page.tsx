@@ -1,4 +1,4 @@
-import { components } from "@/lib/emitter";
+import { categories, components } from "@/lib/emitter";
 import { notFound } from "next/navigation";
 import { cn } from "@/utils/cn";
 import { getCodeIcon, transformCategory } from "@/utils";
@@ -34,6 +34,12 @@ export async function generateMetadata({
       images: [`/api/${params.category}`],
     },
   };
+}
+
+export async function generateStaticParams() {
+  return categories.map((category) => ({
+    slug: category,
+  }));
 }
 
 const ComponentPage = ({ params }: PageProps) => {

@@ -37,7 +37,7 @@ export const CommandMenu = ({
           },
         })) as JsonStructureItem[],
     }));
-  }, [categories]);
+  }, [router]);
 
   const filteredItems = filterItems(
     [
@@ -69,7 +69,7 @@ export const CommandMenu = ({
 
   useEffect(() => {
     onOpenChange(open);
-  }, [open]);
+  }, [open, onOpenChange]);
 
   return (
     <CommandPalette

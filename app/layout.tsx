@@ -3,9 +3,7 @@ import "./globals.css";
 import Navbar from "@/app/_components/navbar";
 import { inter, mono, poppins } from "@/lib/fonts";
 import { siteConfig } from "@/lib/config";
-import { CommandMenu } from "./_components/command-menu";
 import NextTopLoader from "nextjs-toploader";
-import Sheet from "./_components/sheet";
 
 export const metadata: Metadata = {
   metadataBase: new URL(
@@ -26,7 +24,6 @@ export const metadata: Metadata = {
     title: siteConfig.title,
     description: siteConfig.description,
     images: ["/api/explore"],
-    creator: "@shadcn",
   },
 };
 
