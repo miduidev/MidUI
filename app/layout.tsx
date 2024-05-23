@@ -5,6 +5,7 @@ import { inter, mono, poppins } from "@/lib/fonts";
 import { siteConfig } from "@/lib/config";
 import { CommandMenu } from "./_components/command-menu";
 import NextTopLoader from "nextjs-toploader";
+import Sheet from "./_components/sheet";
 
 export const metadata: Metadata = {
   metadataBase: new URL(
@@ -42,7 +43,8 @@ export default function RootLayout({
       <body
         className={`${inter.className} relative bg-black h-full overflow-x-hidden overflow-y-auto`}
       >
-        <NextTopLoader color="#2299DD"
+        <NextTopLoader
+          color="#2299DD"
           initialPosition={0.08}
           crawlSpeed={200}
           height={3}
@@ -56,10 +58,11 @@ export default function RootLayout({
         />
         <div className="-z-40 fixed h-full w-full bg-[linear-gradient(#ffffff_1px,transparent_1px)] opacity-5 [background-size:16px_16px] [mask-image:radial-gradient(ellipse_at_center,black,transparent_90%)]"></div>
         <div className="-z-40 fixed h-full w-full bg-[linear-gradient(90deg,#ffffff_1px,transparent_1px)] opacity-5 [background-size:16px_16px] [mask-image:radial-gradient(ellipse_at_center,black,transparent_90%)]"></div>
-        <div className="flex flex-col min-h-screen min-w-screen relative">
+        <div className="flex flex-col min-h-screen min-w-screen">
           <Navbar />
+
+          {/* <Sheet /> */}
           {children}
-          <CommandMenu />
         </div>
       </body>
     </html>

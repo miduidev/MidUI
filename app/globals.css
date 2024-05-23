@@ -120,3 +120,11 @@ code .line::before {
 .command-palette-list-item .text-gray-500 {
   color: white !important;
 }
+
+.sheet {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.sheet-content {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}

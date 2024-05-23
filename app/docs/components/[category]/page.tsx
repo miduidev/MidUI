@@ -32,7 +32,6 @@ export async function generateMetadata({
       title: title,
       description: description,
       images: [`/api/${params.category}`],
-      creator: "@shadcn",
     },
   };
 }
@@ -67,8 +66,12 @@ const ComponentPage = ({ params }: PageProps) => {
               <div className="w-full border-[0.5px] border-[#27272A]"></div>
             </h2>
 
-            <div className="px-[50px] py-[20px] bg-[#111111] rounded-[10px] relative overflow-x-auto overflow-y-hidden">
-              <comp.metadata.component />
+            <div className="bg-[#111111] rounded-[10px] relative overflow-x-auto overflow-y-hidden z-[1]">
+              <div className="px-[50px] py-[20px] overflow-x-auto">
+                <div className="z-[-1] inset-0 absolute h-full w-full bg-[linear-gradient(#0D92FC,transparent_1px)] [background-size:10px_10px] opacity-5"></div>
+                <div className="z-[-1] inset-0 absolute h-full w-full bg-[linear-gradient(90deg,#0D92FC_1px,transparent_1px)] [background-size:10px_10px] opacity-5"></div>
+                <comp.metadata.component />
+              </div>
             </div>
 
             {comp.files.map((fileName, i) => (

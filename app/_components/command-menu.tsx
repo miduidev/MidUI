@@ -1,11 +1,10 @@
 "use client";
 
 import "react-cmdk/dist/cmdk.css";
-import React, { useMemo } from "react";
+import React, { useEffect, useMemo } from "react";
 import CommandPalette, {
   filterItems,
   getItemIndex,
-  JsonStructure,
   JsonStructureItem,
   useHandleOpenCommandPalette,
 } from "react-cmdk";
@@ -14,7 +13,11 @@ import { categories, components } from "@/lib/emitter";
 import { transformCategory } from "@/utils";
 import { useRouter } from "next/navigation";
 
-export const CommandMenu = () => {
+export const CommandMenu = ({
+  onOpenChange,
+}: {
+  onOpenChange: (open: boolean) => void;
+}) => {
   const [page] = useState<"root" | "projects">("root");
   const [open, setOpen] = useState<boolean>(false);
   const [search, setSearch] = useState("");
@@ -63,6 +66,10 @@ export const CommandMenu = () => {
   );
 
   useHandleOpenCommandPalette(setOpen);
+
+  useEffect(() => {
+    onOpenChange(open);
+  }, [open]);
 
   return (
     <CommandPalette

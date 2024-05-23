@@ -1,6 +1,6 @@
 export function Alert() {
   return (
-    <div className="border-2 border-[#FBC02D] px-5 py-3 gap-[10px] rounded-[10px] flex items-center justify-start">
+    <div className="border-2 border-[#FBC02D] bg-[#111111] px-5 py-3 gap-[10px] rounded-[10px] flex items-center justify-start min-w-max">
       <svg
         width="22"
         height="22"

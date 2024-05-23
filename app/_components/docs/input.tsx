@@ -1,14 +1,19 @@
 import SearchIcon from "@/assets/search.svg";
 import { cn } from "@/utils/cn";
+import { ClassNameValue } from "tailwind-merge";
 
-function Input() {
+type InputProps = {
+  className?: ClassNameValue;
+};
+function Input({ className }: InputProps) {
   return (
     <div
       className={cn(
         "rounded-[10px] border-2 border-[#27272A]",
         "px-[20px] py-[10px] gap-[10px]",
         "flex items-center justify-center",
-        "relative w-max focus-within:border-[#1565C0] transition-colors"
+        "relative w-max focus-within:border-[#1565C0] transition-colors",
+        className
       )}
     >
       <SearchIcon className="w-4 h-4" />
