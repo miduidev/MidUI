@@ -1,5 +1,5 @@
-import DisplayComponents from "./_components/display_components";
-import TailwindBadge from "./_components/tailwind_badge";
+import DisplayComponents from "./_components/display-components";
+import TailwindBadge from "./_components/tailwind-badge";
 import { ArrowRightCircleIcon } from "@heroicons/react/24/outline";
 
 export default function Home() {
