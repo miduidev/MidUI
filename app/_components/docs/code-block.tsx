@@ -9,7 +9,7 @@ type CodeBlockProps = {
 
 export const CodeBlock = ({ fileName, code }: CodeBlockProps) => {
   return (
-    <div className="flex flex-col" key={fileName}>
+    <div className="flex flex-col">
       <div
         className={cn(
           "rounded-t-[10px] bg-[#121212] px-[20px]",

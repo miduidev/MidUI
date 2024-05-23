@@ -27,7 +27,7 @@ export const Component = ({
         </ComponentPreview>
 
         {files.map((fileName, i) => (
-          <CodeBlock fileName={fileName} code={code[i]} />
+          <CodeBlock fileName={fileName} code={code[i]} key={fileName} />
         ))}
       </div>
     </div>
