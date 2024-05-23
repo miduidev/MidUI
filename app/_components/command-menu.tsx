@@ -5,10 +5,12 @@ import React, { useMemo } from "react";
 import CommandPalette, {
   filterItems,
   getItemIndex,
+  JsonStructure,
+  JsonStructureItem,
   useHandleOpenCommandPalette,
 } from "react-cmdk";
 import { useState } from "react";
-import { categories } from "@/lib/emitter";
+import { categories, components } from "@/lib/emitter";
 import { transformCategory } from "@/utils";
 import { useRouter } from "next/navigation";
 
@@ -18,31 +20,44 @@ export const CommandMenu = () => {
   const [search, setSearch] = useState("");
   const router = useRouter();
 
-  const items = useMemo(
-    () =>
-      categories.map((c) => ({
-        id: c,
-        children: transformCategory(c),
-
-        onClick: () => {
-          router.push(`/docs/components/${c}`);
-        },
-      })),
-    [categories]
-  );
+  const items = useMemo(() => {
+    return categories.map((category) => ({
+      heading: transformCategory(category),
+      id: category,
+      items: components
+        .filter((c) => c.metadata.category === category)
+        .map((c) => ({
+          id: c.metadata.title,
+          children: c.metadata.title,
+          onClick: () => {
+            router.push(`/docs/components/${category}#${c.metadata.title}`);
+          },
+        })) as JsonStructureItem[],
+    }));
+  }, [categories]);
 
   const filteredItems = filterItems(
     [
       {
         heading: "Documentation",
         id: "documentation",
-        items: [],
+        items: [
+          {
+            id: "1",
+            children: "Getting Started",
+          },
+          {
+            id: "2",
+            children: "Usage",
+          },
+        ],
       },
-      {
-        heading: "Components",
-        id: "components",
-        items,
-      },
+      // {
+      //   heading: "Components",
+      //   id: "components",
+      //   items,
+      // },
+      ...items,
     ],
     search
   );

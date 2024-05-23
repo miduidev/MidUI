@@ -53,7 +53,7 @@ const ComponentPage = ({ params }: PageProps) => {
       )}
     >
       {matchingComps.map((comp, i) => (
-        <div key={i} className="flex flex-col gap-12">
+        <div key={i} className="flex flex-col gap-12" id={comp.metadata.title}>
           <div className="space-y-5">
             <h1 className="font-bold text-4xl scroll-m-20">
               {comp.metadata.title}

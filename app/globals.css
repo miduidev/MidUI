@@ -106,6 +106,17 @@ code .line::before {
 .command-palette .bg-gray-200\/50 {
   background-color: rgba(55, 175, 247, 0.7) !important;
 }
-.command-palette .text-gray-500 {
+
+/* .command-palette .cursor-pointer {
+  color: white !important;
+  cursor: pointer !important;
+}
+.command-palette .cursor-pointer .text-gray-500 {
+  color: white !important;
+  cursor: pointer !important;
+} */
+
+.command-palette-list-item,
+.command-palette-list-item .text-gray-500 {
   color: white !important;
 }
