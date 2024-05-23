@@ -12,16 +12,24 @@ import { useState } from "react";
 import { categories, components } from "@/lib/emitter";
 import { transformCategory } from "@/utils";
 import { useRouter } from "next/navigation";
+import useOpenStore from "@/store/store";
 
 export const CommandMenu = ({
-  onOpenChange,
+  onOpenChange
 }: {
   onOpenChange: (open: boolean) => void;
 }) => {
+  
   const [page] = useState<"root" | "projects">("root");
   const [open, setOpen] = useState<boolean>(false);
+  const setIsOpen = useOpenStore((state) => state.setIsOpen);
+  const isOpen = useOpenStore((state) => state.isOpen);
   const [search, setSearch] = useState("");
   const router = useRouter();
+
+  useEffect(() => {
+    setOpen(isOpen)
+  }, [isOpen])
 
   const items = useMemo(() => {
     return categories.map((category) => ({
@@ -69,6 +77,7 @@ export const CommandMenu = ({
 
   useEffect(() => {
     onOpenChange(open);
+    setIsOpen(open);
   }, [open, onOpenChange]);
 
   return (
