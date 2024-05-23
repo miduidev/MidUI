@@ -19,9 +19,7 @@ const SideNav = ({ className }: SideNavProps) => {
     <div className={cn("sticky top-0 h-max pt-10 shrink-0 ", className)}>
       <Input />
 
-      <h2 className="mt-8 font-semibold text-[20px] mb-3">
-        Components
-      </h2>
+      <h2 className="mt-8 font-semibold text-[20px] mb-3">Components</h2>
 
       <div
         className={cn(
@@ -34,7 +32,10 @@ const SideNav = ({ className }: SideNavProps) => {
           <Link
             href={`/docs/components/${c}`}
             key={c}
-            className={cn(category === c && "text-white") + "transition ease-in-out delay-100 hover:-translate-x-1 hover:text-[#0D92FC]"}
+            className={cn(
+              category === c && "text-[#0D92FC]",
+              "transition ease-in-out delay-100 hover:-translate-x-1 hover:text-[#0D92FC]"
+            )}
           >
             {transformCategory(c)}
           </Link>

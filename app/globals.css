@@ -106,7 +106,6 @@ code .line::before {
 .command-palette .bg-gray-200\/50 {
   background-color: rgba(55, 175, 247, 0.7) !important;
 }
-
 .command-palette .text-gray-500 {
   color: white !important;
 }

@@ -1,74 +1,47 @@
 "use client";
 
 import "react-cmdk/dist/cmdk.css";
-import React from "react";
+import React, { useMemo } from "react";
 import CommandPalette, {
   filterItems,
   getItemIndex,
   useHandleOpenCommandPalette,
 } from "react-cmdk";
 import { useState } from "react";
+import { categories } from "@/lib/emitter";
+import { transformCategory } from "@/utils";
+import { useRouter } from "next/navigation";
 
 export const CommandMenu = () => {
-  const [page, setPage] = useState<"root" | "projects">("root");
+  const [page] = useState<"root" | "projects">("root");
   const [open, setOpen] = useState<boolean>(false);
   const [search, setSearch] = useState("");
+  const router = useRouter();
+
+  const items = useMemo(
+    () =>
+      categories.map((c) => ({
+        id: c,
+        children: transformCategory(c),
+
+        onClick: () => {
+          router.push(`/docs/components/${c}`);
+        },
+      })),
+    [categories]
+  );
 
   const filteredItems = filterItems(
     [
       {
-        heading: "Home",
-        id: "home",
-        items: [
-          {
-            id: "home",
-            children: "Home",
-            icon: "HomeIcon",
-
-            href: "#",
-          },
-          {
-            id: "settings",
-            children: "Settings",
-            icon: "CogIcon",
-            href: "#",
-          },
-          {
-            id: "projects",
-            children: "Projects",
-            icon: "RectangleStackIcon",
-            closeOnSelect: false,
-            onClick: () => {
-              setPage("projects");
-            },
-          },
-        ],
+        heading: "Documentation",
+        id: "documentation",
+        items: [],
       },
       {
-        heading: "Other",
-        id: "advanced",
-        items: [
-          {
-            id: "developer-settings",
-            children: "Developer settings",
-            icon: "CodeBracketIcon",
-            href: "#",
-          },
-          {
-            id: "privacy-policy",
-            children: "Privacy policy",
-            icon: "LifebuoyIcon",
-            href: "#",
-          },
-          {
-            id: "log-out",
-            children: "Log out",
-            icon: "ArrowRightOnRectangleIcon",
-            onClick: () => {
-              alert("Logging out...");
-            },
-          },
-        ],
+        heading: "Components",
+        id: "components",
+        items,
       },
     ],
     search
@@ -100,10 +73,6 @@ export const CommandMenu = () => {
         ) : (
           <CommandPalette.FreeSearchAction />
         )}
-      </CommandPalette.Page>
-
-      <CommandPalette.Page id="projects">
-        {/* Projects page */}
       </CommandPalette.Page>
     </CommandPalette>
   );
