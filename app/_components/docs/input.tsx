@@ -22,7 +22,7 @@ function Input({ className }: InputProps) {
         "px-[20px] py-[10px] gap-[10px]",
         "flex items-center justify-center",
         "relative w-max focus-within:border-[#1565C0] transition-colors",
-        "hover:cursor-pointer",
+        "hover:cursor-text",
         className
       )}
       onClick={handleCommandMenu}
