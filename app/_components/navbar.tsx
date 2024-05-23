@@ -18,7 +18,7 @@ function Navbar({ transparent = false }: { transparent?: boolean }) {
       className={`${
         !transparent && pathname !== "/" && "border-b border-b-[#27272A]"
       } ${
-        pathname.startsWith("/docs") ? "bg-[#141414]" : "bg-transparent"
+        pathname.startsWith("/docs") ? "bg-[#141414] sticky top-0 md:relative" : "bg-transparent"
       } z-10`}
     >
       <div className="w-full flex items-center container mx-auto justify-between px-5 py-4">

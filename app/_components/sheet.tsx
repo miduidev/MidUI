@@ -26,7 +26,7 @@ const Sheet = ({ open, setOpen }: SheetProps) => {
             opacity: 1,
           }}
           exit={{ opacity: 0 }}
-          className="absolute min-w-[100vw] min-h-[100vh] inset-0 z-[10] sheet"
+          className="fixed w-screen h-screen inset-0 z-20 sheet overscroll-none"
           onClick={() => setOpen(false)}
           key={1}
         />
@@ -34,9 +34,9 @@ const Sheet = ({ open, setOpen }: SheetProps) => {
       {open && (
         <motion.div
           className={cn(
-            "h-full w-[330px] bg-[#111111] pl-10 pr-20",
+            "w-[330px] bg-[#111111] pl-10 pr-20",
             "py-14 border-r border-r-[#27272A] sheet-content",
-            "absolute min-w-vw min-h-vh inset-0 z-[12] sheet-content"
+            "fixed h-screen inset-0 z-20 sheet-content overscroll-none"
           )}
           key={2}
           initial={{ x: -350 }}
