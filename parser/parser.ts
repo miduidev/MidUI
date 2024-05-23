@@ -4,6 +4,7 @@ import { glob } from "glob";
 import { getHighlighter } from "shiki";
 import serialize from "serialize-javascript";
 import { Metadata } from "@/lib/types";
+import { v4 } from "uuid";
 
 type FileMap = Record<
   string,
@@ -83,7 +84,7 @@ const main = async () => {
       contents.push(serialize(html));
     }
     names.push(
-      `{metadata : ${importId}, code: [${contents.join(
+      `{id: "${v4()}", metadata: ${importId}, code: [${contents.join(
         ",\n"
       )}], files : [${files.join(",\n")}]}`
     );

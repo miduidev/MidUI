@@ -1,6 +1,7 @@
 import ReactLogo from "@/assets/react.svg";
 import HtmlLogo from "@/assets/html.svg";
 import path from "path-browserify";
+import { components } from "@/lib/emitter";
 
 export function getCodeIcon(fileName: string) {
   const ext = path.extname(fileName);
@@ -21,4 +22,10 @@ export const transformCategory = (c: string) => {
   }
 
   return words.join(" ");
+};
+
+export const getMatchingComponents = (category: string) => {
+  return components.filter(
+    (c) => c.metadata.category.toLocaleLowerCase() === category.toLowerCase()
+  );
 };
