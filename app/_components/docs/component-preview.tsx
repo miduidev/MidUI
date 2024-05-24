@@ -19,7 +19,7 @@ export const ComponentPreview = ({
         className
       )}
     >
-      <div className="px-[50px] py-[20px] overflow-x-auto">
+      <div className="px-[50px] py-[20px] overflow-x-auto flex justify-center gap-x-[15px] min-w-max">
         <div className="z-[-1] inset-0 absolute h-full w-full bg-[linear-gradient(#0D92FC,transparent_1px)] [background-size:10px_10px] opacity-5"></div>
         <div className="z-[-1] inset-0 absolute h-full w-full bg-[linear-gradient(90deg,#0D92FC_1px,transparent_1px)] [background-size:10px_10px] opacity-5"></div>
         {children}

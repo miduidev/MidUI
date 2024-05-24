@@ -4,7 +4,7 @@ import { Card } from "./example";
 const metadata = {
   title: "Card",
   description: "An Normal Card element",
-  category: "card",
+  category: "cards",
   component: Card,
 } satisfies Metadata;
 
