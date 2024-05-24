@@ -51,6 +51,7 @@ const ComponentPage = ({ params }: PageProps) => {
   if (!matchingComps) {
     return notFound();
   }
+  matchingComps.reverse();
 
   return (
     <div
