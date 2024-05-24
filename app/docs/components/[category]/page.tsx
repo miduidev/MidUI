@@ -42,7 +42,7 @@ export async function generateMetadata({
 
 export async function generateStaticParams() {
   return categories.map((category) => ({
-    slug: category,
+    category: category,
   }));
 }
 
