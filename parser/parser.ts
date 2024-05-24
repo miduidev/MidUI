@@ -5,6 +5,7 @@ import { getHighlighter } from "shiki";
 import serialize from "serialize-javascript";
 import { Metadata } from "@/lib/types";
 import { v4 } from "uuid";
+import { metadataSchema } from "./schema";
 
 type FileMap = Record<
   string,
@@ -38,6 +39,13 @@ const main = async () => {
       const { default: Comp } = (await import(
         `@/data${file.replace(BASE_DIR, "")}`
       )) as { default: Metadata };
+
+      const res = metadataSchema.safeParse(Comp);
+      if (!res.success) {
+        console.log(`Error while parsing metadata: ${file}`);
+        console.log(res.error.flatten());
+        process.exit(1);
+      }
 
       categories.add(Comp.category);
 
