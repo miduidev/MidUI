@@ -6,26 +6,36 @@ import GithubLogo from "@/assets/github.svg";
 import { usePathname } from "next/navigation";
 import { Bars3Icon } from "@heroicons/react/24/outline";
 import Sheet from "./sheet";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { CommandMenu } from "./command-menu";
+import useOpenStore from "@/store/store";
 
 function Navbar({ transparent = false }: { transparent?: boolean }) {
   const pathname = usePathname();
-  const [open, setOpen] = useState(false);
+  const isCmdMenuOpen = useOpenStore((state) => state.isOpen);
+  const [sheetOpen, setSheetOpen] = useState(false);
+
+  useEffect(() => {
+    if (isCmdMenuOpen && sheetOpen) {
+      setSheetOpen(false);
+    }
+  }, [isCmdMenuOpen, sheetOpen]);
 
   return (
     <div
       className={`${
         !transparent && pathname !== "/" && "border-b border-b-[#27272A]"
       } ${
-        pathname.startsWith("/docs") ? "bg-[#141414] sticky top-0 md:relative" : "bg-transparent"
+        pathname.startsWith("/docs")
+          ? "bg-[#141414] sticky top-0 md:relative"
+          : "bg-transparent"
       } z-10`}
     >
       <div className="w-full flex items-center container mx-auto justify-between px-5 py-4">
         {pathname.startsWith("/docs") && (
           <Bars3Icon
             className="size-8 md:hidden"
-            onClick={() => setOpen(true)}
+            onClick={() => setSheetOpen(true)}
           />
         )}
         <Link href="/" className="flex items-center justify-center gap-2">
@@ -52,14 +62,8 @@ function Navbar({ transparent = false }: { transparent?: boolean }) {
           <GithubLogo className="transition ease-in-out delay-100 hover:-translate-x-1 cursor-pointer" />
         </div>
       </div>
-      <Sheet open={open} setOpen={setOpen} />
-      <CommandMenu
-        onOpenChange={(o) => {
-          if (o && open) {
-            setOpen(false);
-          }
-        }}
-      />
+      <Sheet open={sheetOpen} setOpen={setSheetOpen} />
+      <CommandMenu />
     </div>
   );
 }

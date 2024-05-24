@@ -1,7 +1,7 @@
 "use client";
 
 import "react-cmdk/dist/cmdk.css";
-import React, { useEffect, useMemo } from "react";
+import React, { useMemo } from "react";
 import CommandPalette, {
   filterItems,
   getItemIndex,
@@ -14,22 +14,11 @@ import { transformCategory } from "@/utils";
 import { useRouter } from "next/navigation";
 import useOpenStore from "@/store/store";
 
-export const CommandMenu = ({
-  onOpenChange
-}: {
-  onOpenChange: (open: boolean) => void;
-}) => {
-  
+export const CommandMenu = () => {
   const [page] = useState<"root" | "projects">("root");
-  const [open, setOpen] = useState<boolean>(false);
-  const setIsOpen = useOpenStore((state) => state.setIsOpen);
-  const isOpen = useOpenStore((state) => state.isOpen);
+  const { isOpen, setIsOpen } = useOpenStore();
   const [search, setSearch] = useState("");
   const router = useRouter();
-
-  useEffect(() => {
-    setOpen(isOpen)
-  }, [isOpen])
 
   const items = useMemo(() => {
     return categories.map((category) => ({
@@ -73,19 +62,14 @@ export const CommandMenu = ({
     search
   );
 
-  useHandleOpenCommandPalette(setOpen);
-
-  useEffect(() => {
-    onOpenChange(open);
-    setIsOpen(open);
-  }, [open, onOpenChange]);
+  useHandleOpenCommandPalette(setIsOpen);
 
   return (
     <CommandPalette
       onChangeSearch={setSearch}
-      onChangeOpen={setOpen}
+      onChangeOpen={setIsOpen}
       search={search}
-      isOpen={open}
+      isOpen={isOpen}
       page={page}
     >
       <CommandPalette.Page id="root">

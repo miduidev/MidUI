@@ -1,8 +1,6 @@
 import SearchIcon from "@/assets/search.svg";
 import { cn } from "@/utils/cn";
 import { ClassNameValue } from "tailwind-merge";
-import { CommandMenu } from "../command-menu";
-import { useState } from "react";
 import useOpenStore from "@/store/store";
 
 type InputProps = {
@@ -28,9 +26,9 @@ function Input({ className }: InputProps) {
       onClick={handleCommandMenu}
     >
       <SearchIcon className="w-4 h-4" />
-      <div
-        className="w-28 text-[#545353] bg-transparent outline-none group text-start"
-      >Search</div>
+      <div className="w-28 text-[#545353] bg-transparent outline-none group text-start">
+        Search
+      </div>
 
       <div
         className={cn(
