@@ -1,6 +1,12 @@
+/**
+ * @miduidev MidUI 2024
+ * This file is constant. Any changes (if required) will 
+ * only be made by miduidevs based on community feedback.
+ * 
+ * DO NOT UPDATE THIS FILE!
+ */
 import GettingStarted from "@/data/docs/getting-started.mdx";
 
-// TODO: Create a parser for this that also includes the file's front matter
 export const contents = [
   {
     name: "Getting Started",
