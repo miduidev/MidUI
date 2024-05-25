@@ -1,10 +1,11 @@
 "use client";
 
 import { categories } from "@/lib/emitter/components";
+import { contents } from "@/lib/emitter/docs";
 import { transformCategory } from "@/utils";
 import { cn } from "@/utils/cn";
 import Link from "next/link";
-import { useParams } from "next/navigation";
+import { useParams, usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import Input from "./docs/input";
 import { XMarkIcon } from "@heroicons/react/24/outline";
@@ -16,6 +17,7 @@ type SheetProps = {
 
 const Sheet = ({ open, setOpen }: SheetProps) => {
   const { category } = useParams() as { category?: string };
+  const pathname = usePathname();
 
   return (
     <AnimatePresence initial={false}>
@@ -51,6 +53,31 @@ const Sheet = ({ open, setOpen }: SheetProps) => {
             onClick={() => setOpen(false)}
           />
           <Input className="w-lg mb-5" />
+          <h2 className="font-semibold text-2xl mb-3">Documentation</h2>
+          <div
+            className={cn(
+              "items-start justify-center flex flex-col",
+              "py-[10px] gap-[12px]",
+              "text-[#B2B2B2] text-[16px]"
+            )}
+          >
+            {contents.map(({ slugAsParams, name }) => (
+              <Link
+                onClick={() => {
+                  setOpen(false);
+                }}
+                href={`/docs/${slugAsParams}`}
+                key={slugAsParams}
+                className={cn(
+                  pathname === `/docs/${slugAsParams}` && "text-[#0D92FC]",
+                  "transition ease-in-out delay-100 hover:-translate-x-1 hover:text-[#0D92FC]"
+                )}
+              >
+                {name}
+              </Link>
+            ))}
+          </div>
+
           <h2 className="font-semibold text-2xl mb-3">Components</h2>
 
           <div
