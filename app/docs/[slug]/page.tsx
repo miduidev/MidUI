@@ -1,4 +1,4 @@
-import { contents } from "@/app/_components/docs/contents";
+import { contents } from "@/lib/emitter/docs";
 import { notFound } from "next/navigation";
 
 type PageProps = {

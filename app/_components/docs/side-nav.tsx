@@ -7,7 +7,7 @@ import { categories } from "@/lib/emitter/components";
 import Link from "next/link";
 import { ClassNameValue } from "tailwind-merge";
 import { transformCategory } from "@/utils";
-import { contents } from "./contents";
+import { contents } from "@/lib/emitter/docs";
 
 type SideNavProps = {
   className?: ClassNameValue;
