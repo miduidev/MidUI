@@ -1,12 +1,13 @@
 "use client";
 
-import { useParams } from "next/navigation";
+import { useParams, usePathname } from "next/navigation";
 import Input from "./input";
 import { cn } from "@/utils/cn";
-import { categories } from "@/lib/emitter";
+import { categories } from "@/lib/emitter/components";
 import Link from "next/link";
 import { ClassNameValue } from "tailwind-merge";
 import { transformCategory } from "@/utils";
+import { contents } from "./contents";
 
 type SideNavProps = {
   className?: ClassNameValue;
@@ -14,10 +15,32 @@ type SideNavProps = {
 
 const SideNav = ({ className }: SideNavProps) => {
   const { category } = useParams() as { category?: string };
+  const pathname = usePathname();
 
   return (
     <div className={cn("sticky top-0 h-max pt-10 shrink-0 ", className)}>
       <Input />
+      <h2 className="mt-8 font-semibold text-[20px] mb-3">Documentation</h2>
+      <div
+        className={cn(
+          "items-start justify-center flex flex-col",
+          "py-[10px] gap-[12px]",
+          "text-[#B2B2B2] text-[16px]"
+        )}
+      >
+        {contents.map(({ slugAsParams, name }) => (
+          <Link
+            href={`/docs/${slugAsParams}`}
+            key={slugAsParams}
+            className={cn(
+              pathname === `/docs/${slugAsParams}` && "text-[#0D92FC]",
+              "transition ease-in-out delay-100 hover:-translate-x-1 hover:text-[#0D92FC]"
+            )}
+          >
+            {name}
+          </Link>
+        ))}
+      </div>
 
       <h2 className="mt-8 font-semibold text-[20px] mb-3">Components</h2>
 

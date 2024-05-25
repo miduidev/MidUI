@@ -18,7 +18,7 @@ type FileMap = Record<
 const main = async () => {
   const BASE_DIR = path.resolve(`${process.cwd()}/data`);
 
-  const files = await glob(BASE_DIR + "/**/*.{jsx,tsx,html,vue}");
+  const files = await glob(BASE_DIR + "/components/**/*.{jsx,tsx,html,vue}");
   const data: string[] = [];
   const names: string[] = [];
   const map: FileMap = {};
@@ -103,7 +103,10 @@ const main = async () => {
     `export const categories = ${JSON.stringify(Array.from(categories).sort())}`
   );
 
-  fs.writeFileSync(path.resolve("./lib/emitter.ts"), data.join("\n"));
+  fs.writeFileSync(
+    path.resolve("./lib/emitter/components.ts"),
+    data.join("\n")
+  );
 };
 
 main();

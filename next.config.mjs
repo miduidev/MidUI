@@ -1,3 +1,13 @@
+import nextMdx from "@next/mdx";
+
+const withMdx = nextMdx({
+  extension: /\.mdx?$/,
+  options: {
+    remarkPlugins: [],
+    rehypePlugins: [],
+  },
+});
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   webpack(config) {
@@ -21,6 +31,10 @@ const nextConfig = {
 
     return config;
   },
+  pageExtensions: ["js", "jsx", "tsx", "ts", "mdx"],
+  experimental: {
+    mdxRs: true,
+  },
 };
 
-export default nextConfig;
+export default withMdx(nextConfig);

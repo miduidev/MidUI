@@ -1,4 +1,4 @@
-import { categories } from "@/lib/emitter";
+import { categories } from "@/lib/emitter/components";
 import { notFound } from "next/navigation";
 import { cn } from "@/utils/cn";
 import { getMatchingComponents, transformCategory } from "@/utils";

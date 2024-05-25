@@ -9,10 +9,11 @@ import CommandPalette, {
   useHandleOpenCommandPalette,
 } from "react-cmdk";
 import { useState } from "react";
-import { categories, components } from "@/lib/emitter";
+import { categories, components } from "@/lib/emitter/components";
 import { transformCategory } from "@/utils";
 import { useRouter } from "next/navigation";
 import useOpenStore from "@/store/store";
+import { contents } from "@/lib/emitter/docs";
 
 export const CommandMenu = () => {
   const [page] = useState<"root" | "projects">("root");
@@ -41,22 +42,12 @@ export const CommandMenu = () => {
       {
         heading: "Documentation",
         id: "documentation",
-        items: [
-          {
-            id: "1",
-            children: "Getting Started",
-          },
-          {
-            id: "2",
-            children: "Usage",
-          },
-        ],
+        items: contents.map((c) => ({
+          id: c.slugAsParams,
+          children: c.name,
+          onClick: () => router.push(`/docs/${c.slugAsParams}`),
+        })),
       },
-      // {
-      //   heading: "Components",
-      //   id: "components",
-      //   items,
-      // },
       ...items,
     ],
     search

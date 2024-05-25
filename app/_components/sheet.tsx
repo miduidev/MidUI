@@ -1,6 +1,6 @@
 "use client";
 
-import { categories } from "@/lib/emitter";
+import { categories } from "@/lib/emitter/components";
 import { transformCategory } from "@/utils";
 import { cn } from "@/utils/cn";
 import Link from "next/link";
