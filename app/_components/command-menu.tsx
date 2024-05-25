@@ -10,7 +10,7 @@ import CommandPalette, {
 } from "react-cmdk";
 import { useState } from "react";
 import { categories, components } from "@/lib/emitter/components";
-import { transformCategory } from "@/utils";
+import { getNonEncodedId, transformCategory } from "@/utils";
 import { useRouter } from "next/navigation";
 import useOpenStore from "@/store/store";
 import { contents } from "@/lib/emitter/docs";
@@ -31,7 +31,7 @@ export const CommandMenu = () => {
           id: c.metadata.title,
           children: c.metadata.title,
           onClick: () => {
-            router.push(`/docs/components/${category}#${c.metadata.title}`);
+            router.push(`/docs/components/${category}#${getNonEncodedId(c.metadata.title)}`);
           },
         })) as JsonStructureItem[],
     }));

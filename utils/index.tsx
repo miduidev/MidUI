@@ -29,3 +29,7 @@ export const getMatchingComponents = (category: string) => {
     (c) => c.metadata.category.toLocaleLowerCase() === category.toLowerCase()
   );
 };
+
+export const getNonEncodedId = (id: string) => {
+  return id.replace(/\s+/g, '-').toLowerCase();
+}
