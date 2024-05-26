@@ -25,6 +25,8 @@
     "react": "^18",
     "react-cmdk": "^1.3.9",
     "react-dom": "^18",
+    "rehype-slug": "^6.0.0",
+    "remark-gfm": "^4.0.0",
     "serialize-javascript": "^6.0.2",
     "shiki": "^1.6.0",
     "tailwind-merge": "^2.3.0",

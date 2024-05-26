@@ -1,10 +1,12 @@
 import nextMdx from "@next/mdx";
+import remarkGfm from "remark-gfm";
+import rehypeSlug from "rehype-slug";
 
 const withMdx = nextMdx({
   extension: /\.mdx?$/,
   options: {
-    remarkPlugins: [],
-    rehypePlugins: [],
+    remarkPlugins: [remarkGfm],
+    rehypePlugins: [rehypeSlug],
   },
 });
 
@@ -32,9 +34,6 @@ const nextConfig = {
     return config;
   },
   pageExtensions: ["js", "jsx", "tsx", "ts", "mdx"],
-  experimental: {
-    mdxRs: true,
-  },
 };
 
 export default withMdx(nextConfig);
