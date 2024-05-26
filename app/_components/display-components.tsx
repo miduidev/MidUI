@@ -8,7 +8,7 @@ const DisplayCompoents = () => {
       <div className={`flex-col hidden md:flex md:translate-x-1/4 lg:translate-x-0 ${poppins.className}`}>
           <div className="flex justify-end gap-4">
             <div className="flex flex-col space-y-2 items-end mt-10">
-                  <div className="border border-[#1E1E1E] rounded-md flex items-center w-48 text-sm">
+                  <div className="w-48 text-sm rounded-[10px] bg-[#111111] border-2 border-[#27272A] flex items-center justify-center focus-within:border-2 focus-within:border-[#1565C0] transition-colors">
                       <UserIcon className="size-6 mx-1 text-[#545353]" />
                       <input className='w-full outline-none py-2 bg-transparent' type="text" placeholder="Username"/>
                   </div>
@@ -34,7 +34,7 @@ const DisplayCompoents = () => {
                   <button className='rounded-md px-4 py-2 bg-[#1565C0]'>Click Me</button>
               </div>
           </div>
-          <div className="mt-3 border border-[#1E1E1E] rounded-md flex items-center self-end w-72 text-sm">
+          <div className="self-end w-72 mt-3 text-sm rounded-[10px] bg-[#111111] border-2 border-[#27272A] flex items-center justify-center focus-within:border-2 focus-within:border-[#1565C0] transition-colors">
                 <LockClosedIcon className="size-6 mx-1 text-[#545353]" />
                 <input className='w-full outline-none py-2 bg-transparent' type="password" placeholder="Password"/>
           </div>
