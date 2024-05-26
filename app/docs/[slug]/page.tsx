@@ -5,6 +5,12 @@ type PageProps = {
   params: { slug: string };
 };
 
+export async function generateStaticParams() {
+  return contents.map((c) => ({
+    slug: c.slugAsParams,
+  }));
+}
+
 const Page = ({ params }: PageProps) => {
   const content = contents.find((c) => c.slugAsParams === params.slug);
   if (!content) {
