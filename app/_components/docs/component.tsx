@@ -1,7 +1,7 @@
 import type { UIComponent } from "@/lib/types";
 import { ComponentPreview } from "./component-preview";
 import { CodeBlock } from "./code-block";
-import { getNonEncodedId } from "@/utils";
+import { getCodeIcon, getNonEncodedId } from "@/utils";
 
 type ComponentProps = {
   component: UIComponent;
@@ -27,9 +27,9 @@ export const Component = ({
           <metadata.component />
         </ComponentPreview>
 
-        {files.map((fileName, i) => (
-          <CodeBlock fileName={fileName} code={code[i]} key={fileName} />
-        ))}
+        
+
+        <CodeBlock files={files} codes={code} />
       </div>
     </div>
   );

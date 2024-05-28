@@ -1,13 +1,19 @@
-import { getCodeIcon } from "@/utils";
+"use client";
+
 import { cn } from "@/utils/cn";
 import path from "path-browserify";
+import { useState } from "react";
+import CodeSelect from "./code-select";
 
 type CodeBlockProps = {
-  fileName: string;
-  code: string;
+  files: string[];
+  codes: string[];
 };
 
-export const CodeBlock = ({ fileName, code }: CodeBlockProps) => {
+export const CodeBlock = ({ files, codes }: CodeBlockProps) => {
+
+  const [active, setActive] = useState(0);
+
   return (
     <div className="flex flex-col">
       <div
@@ -17,20 +23,17 @@ export const CodeBlock = ({ fileName, code }: CodeBlockProps) => {
           "flex items-center justify-between"
         )}
       >
-        <p className="font-medium text-[12px]">{path.basename(fileName)}</p>
+        <p className="font-medium text-[12px]">{path.basename(files[active])}</p>
 
         <div className="flex items-center gap-[10px] justify-center">
-          <p className="font-normal uppercase">
-            {path.extname(fileName).slice(1)}
-          </p>
-          {getCodeIcon(fileName)}
+          <CodeSelect active={active} setActive={setActive} files={files} />
         </div>
       </div>
 
       <div className="flex flex-col p-[16px] bg-[#121212] rounded-[10px] rounded-t-none">
         <div
           dangerouslySetInnerHTML={{
-            __html: code,
+            __html: codes[active],
           }}
         ></div>
       </div>

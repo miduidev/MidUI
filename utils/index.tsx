@@ -1,5 +1,6 @@
 import ReactLogo from "@/assets/react.svg";
 import HtmlLogo from "@/assets/html.svg";
+import VueLogo from "@/assets/vue.svg";
 import path from "path-browserify";
 import { components } from "@/lib/emitter/components";
 
@@ -10,6 +11,8 @@ export function getCodeIcon(fileName: string) {
     return <ReactLogo />;
   } else if (ext === ".html") {
     return <HtmlLogo />;
+  } else if (ext === ".vue") {
+    return <VueLogo />
   }
 
   return null;
