@@ -2,6 +2,7 @@ import SearchIcon from "@/assets/search.svg";
 import { cn } from "@/utils/cn";
 import { ClassNameValue } from "tailwind-merge";
 import useOpenStore from "@/store/store";
+import Shortcut from "./shortcut";
 
 type InputProps = {
   className?: ClassNameValue;
@@ -38,7 +39,7 @@ function Input({ className }: InputProps) {
           "items-center justify-center p-[6px]"
         )}
       >
-        <span>CTRL + K</span>
+        <Shortcut />
       </div>
     </button>
   );
