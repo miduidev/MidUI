@@ -79,7 +79,7 @@ const Sheet = ({ open, setOpen, input }: SheetProps) => {
             ))}
           </div>
 
-          <h2 className="font-semibold text-2xl mb-3">Components</h2>
+          <h2 className="font-semibold text-2xl mb-3 mt-8">Components</h2>
 
           <div
             className={cn(
