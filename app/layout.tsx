@@ -4,6 +4,8 @@ import Navbar from "@/app/_components/navbar";
 import { inter, mono, poppins } from "@/lib/fonts";
 import { siteConfig } from "@/lib/config";
 import NextTopLoader from "nextjs-toploader";
+import Input from "./_components/docs/input";
+import Shortcut from "./_components/docs/shortcut";
 
 export const metadata: Metadata = {
   metadataBase: new URL(
@@ -56,7 +58,9 @@ export default function RootLayout({
         <div className="-z-40 fixed h-full w-full bg-[linear-gradient(#ffffff_1px,transparent_1px)] opacity-5 [background-size:16px_16px] [mask-image:radial-gradient(ellipse_at_center,black,transparent_90%)]"></div>
         <div className="-z-40 fixed h-full w-full bg-[linear-gradient(90deg,#ffffff_1px,transparent_1px)] opacity-5 [background-size:16px_16px] [mask-image:radial-gradient(ellipse_at_center,black,transparent_90%)]"></div>
         <div className="flex flex-col min-h-screen min-w-screen">
-          <Navbar />
+          <Navbar
+            input={<Input shortcut={<Shortcut />} className="w-lg mb-5" />}
+          />
 
           {/* <Sheet /> */}
           {children}

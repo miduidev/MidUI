@@ -1,3 +1,5 @@
+"use client";
+
 import SearchIcon from "@/assets/search.svg";
 import { cn } from "@/utils/cn";
 import { ClassNameValue } from "tailwind-merge";
@@ -6,9 +8,10 @@ import Shortcut from "./shortcut";
 
 type InputProps = {
   className?: ClassNameValue;
+  shortcut: React.ReactNode;
 };
 
-function Input({ className }: InputProps) {
+function Input({ className, shortcut }: InputProps) {
   const setOpen = useOpenStore((state) => state.setIsOpen);
 
   function handleCommandMenu() {
@@ -39,7 +42,7 @@ function Input({ className }: InputProps) {
           "items-center justify-center p-[6px]"
         )}
       >
-        <Shortcut />
+        {shortcut}
       </div>
     </button>
   );

@@ -7,15 +7,15 @@ import { cn } from "@/utils/cn";
 import Link from "next/link";
 import { useParams, usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
-import Input from "./docs/input";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 
 type SheetProps = {
   open: boolean;
   setOpen: (open: boolean) => void;
+  input: React.ReactNode;
 };
 
-const Sheet = ({ open, setOpen }: SheetProps) => {
+const Sheet = ({ open, setOpen, input }: SheetProps) => {
   const { category } = useParams() as { category?: string };
   const pathname = usePathname();
 
@@ -52,7 +52,8 @@ const Sheet = ({ open, setOpen }: SheetProps) => {
             className="absolute right-5 top-5"
             onClick={() => setOpen(false)}
           />
-          <Input className="w-lg mb-5" />
+          {/* <Input className="w-lg mb-5" /> */}
+          {input}
           <h2 className="font-semibold text-2xl mb-3">Documentation</h2>
           <div
             className={cn(

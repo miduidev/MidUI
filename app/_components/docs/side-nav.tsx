@@ -1,7 +1,6 @@
 "use client";
 
 import { useParams, usePathname } from "next/navigation";
-import Input from "./input";
 import { cn } from "@/utils/cn";
 import { categories } from "@/lib/emitter/components";
 import Link from "next/link";
@@ -11,15 +10,16 @@ import { contents } from "@/lib/emitter/docs";
 
 type SideNavProps = {
   className?: ClassNameValue;
+  input: React.ReactNode;
 };
 
-const SideNav = ({ className }: SideNavProps) => {
+const SideNav = ({ className, input }: SideNavProps) => {
   const { category } = useParams() as { category?: string };
   const pathname = usePathname();
 
   return (
     <div className={cn("sticky top-0 h-max pt-10 shrink-0 ", className)}>
-      <Input />
+      {input}
       <h2 className="mt-8 font-semibold text-[20px] mb-3">Documentation</h2>
       <div
         className={cn(

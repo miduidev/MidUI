@@ -1,13 +1,17 @@
-"use client"
+import { headers } from "next/headers";
 
 const Shortcut = () => {
-    const isMac =
-    typeof window !== "undefined"
-      ? navigator.userAgent.toUpperCase().indexOf("MAC") >= 0
-      : false;
+  const hds = headers();
+  const isMac = !hds.get("user-agent")?.includes("Mac");
   return (
-    <span>{isMac?<span className="text-xl">⌘</span> : "CTRL"} + K</span>
-  )
-}
+    <span>
+      {isMac ? (
+        <span className="text-[10px]">⌘ + K</span>
+      ) : (
+        <span className="text-[8px]">CTRL + K</span>
+      )}
+    </span>
+  );
+};
 
 export default Shortcut;

@@ -6,11 +6,17 @@ import GithubLogo from "@/assets/github.svg";
 import { usePathname } from "next/navigation";
 import { Bars3Icon } from "@heroicons/react/24/outline";
 import Sheet from "./sheet";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { CommandMenu } from "./command-menu";
 import useOpenStore from "@/store/store";
 
-function Navbar({ transparent = false }: { transparent?: boolean }) {
+function Navbar({
+  transparent = false,
+  input,
+}: {
+  transparent?: boolean;
+  input: React.ReactNode;
+}) {
   const pathname = usePathname();
   const isCmdMenuOpen = useOpenStore((state) => state.isOpen);
   const [sheetOpen, setSheetOpen] = useState(false);
@@ -62,7 +68,7 @@ function Navbar({ transparent = false }: { transparent?: boolean }) {
           <GithubLogo className="transition ease-in-out delay-100 hover:-translate-x-1 cursor-pointer" />
         </div>
       </div>
-      <Sheet open={sheetOpen} setOpen={setSheetOpen} />
+      <Sheet open={sheetOpen} setOpen={setSheetOpen} input={input} />
       <CommandMenu />
     </div>
   );

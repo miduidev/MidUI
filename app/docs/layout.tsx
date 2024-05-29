@@ -1,6 +1,8 @@
 import React from "react";
 import SideNav from "../_components/docs/side-nav";
 import { Metadata } from "next";
+import Input from "../_components/docs/input";
+import Shortcut from "../_components/docs/shortcut";
 
 export const metadata: Metadata = {
   title: "Docs",
@@ -12,7 +14,10 @@ const Layout = ({
   return (
     <div className="flex-1 w-full bg-[#141414] font-poppins h-full">
       <div className="flex container mx-auto h-full">
-        <SideNav className="hidden md:block lg:block" />
+        <SideNav
+          className="hidden md:block lg:block"
+          input={<Input shortcut={<Shortcut />} />}
+        />
 
         {children}
       </div>
