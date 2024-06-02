@@ -4,6 +4,7 @@ import { cn } from "@/utils/cn";
 import { getMatchingComponents, transformCategory } from "@/utils";
 import { Metadata } from "next";
 import { Component } from "@/app/_components/docs/component";
+import Footer from "@/app/_components/docs/footer";
 
 type PageProps = {
   params: { category: string };
@@ -54,16 +55,11 @@ const ComponentPage = ({ params }: PageProps) => {
   matchingComps.reverse();
 
   return (
-    <div
-      className={cn(
-        "px-8 pt-10 md:pt-16 lg:pt-16 pb-5 flex flex-col",
-        "gap-12 min-w-0"
-      )}
-    >
-      {matchingComps.map((component) => (
+    <>
+    {matchingComps.map((component) => (
         <Component component={component} key={component.id} />
       ))}
-    </div>
+    </>
   );
 };
 

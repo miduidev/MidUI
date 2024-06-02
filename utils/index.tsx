@@ -36,3 +36,39 @@ export const getMatchingComponents = (category: string) => {
 export const getNonEncodedId = (id: string) => {
   return id.replace(/\s+/g, '-').toLowerCase();
 }
+
+
+export const footerRoutes = [
+  [
+    {
+      name: "Github",
+      href: "/"
+    },
+    {
+      name: "Discord",
+      href: "/"
+    },
+    {
+      name: "Contribute",
+      href: "/"
+    }
+  ],
+  [
+    {
+      name: "Terms",
+      href: "/"
+    },
+    {
+      name: "License",
+      href: "/"
+    },
+    {
+      name: "Sponsor",
+      href: "/"
+    },
+    {
+      name: "Contact",
+      href: "/"
+    }
+  ]
+];

@@ -34,6 +34,9 @@ const nextConfig = {
     return config;
   },
   pageExtensions: ["js", "jsx", "tsx", "ts", "mdx"],
+  env: {
+    PROJECT_URL : "https://github.com/miduidev/MidUI/tree/main/data/"
+  }
 };
 
 export default withMdx(nextConfig);
