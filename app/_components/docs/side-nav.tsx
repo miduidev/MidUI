@@ -18,7 +18,7 @@ const SideNav = ({ className, input }: SideNavProps) => {
   const pathname = usePathname();
 
   return (
-    <div className={cn("sticky top-0 h-max pt-10 shrink-0 ", className)}>
+    <div className={cn("sticky top-0 h-max pt-10 shrink-0 mx-3", className)}>
       {input}
       <h2 className="mt-8 font-semibold text-[20px] mb-3">Documentation</h2>
       <div
