@@ -38,7 +38,7 @@ const Sheet = ({ open, setOpen, input }: SheetProps) => {
           className={cn(
             "w-[330px] bg-[#111111] pl-10 pr-20",
             "py-14 border-r border-r-[#27272A] sheet-content",
-            "fixed h-screen inset-0 z-20 sheet-content overscroll-none"
+            "fixed h-screen inset-0 z-20 sheet-content overscroll-none overflow-y-scroll overflow-x-hidden"
           )}
           key={2}
           initial={{ x: -350 }}
