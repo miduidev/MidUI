@@ -5,6 +5,7 @@ import Input from "@/app/_components/docs/input";
 import Shortcut from "@/app/_components/docs/shortcut";
 import Footer from "@/app/_components/docs/footer";
 import { cn } from "@/utils/cn";
+import ScrollTop from "@/app/_components/docs/scroll-to-top";
 
 export const metadata: Metadata = {
   title: "Docs",
@@ -27,6 +28,8 @@ const Layout = ({
           {children}
           <Footer />
         </div>
+
+        <ScrollTop />
       </div>
     </div>
   );

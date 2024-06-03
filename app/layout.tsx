@@ -40,7 +40,7 @@ export default function RootLayout({
       className={`${mono.variable} ${poppins.variable} overflow-hidden h-full`}
     >
       <body
-        className={`${inter.className} relative bg-black h-full overflow-x-hidden overflow-y-auto`}
+        className={`${inter.className} relative bg-black h-full overflow-x-hidden overflow-y-auto scroll-smooth`}
       >
         <NextTopLoader
           color="#2299DD"
@@ -57,7 +57,7 @@ export default function RootLayout({
         />
         <div className="-z-40 fixed h-full w-full bg-[linear-gradient(#ffffff_1px,transparent_1px)] opacity-5 [background-size:16px_16px] [mask-image:radial-gradient(ellipse_at_center,black,transparent_90%)]"></div>
         <div className="-z-40 fixed h-full w-full bg-[linear-gradient(90deg,#ffffff_1px,transparent_1px)] opacity-5 [background-size:16px_16px] [mask-image:radial-gradient(ellipse_at_center,black,transparent_90%)]"></div>
-        <div className="flex flex-col min-h-screen min-w-screen">
+        <div className="flex flex-col min-h-screen min-w-screen scroll-smooth">
           <Navbar
             input={<Input shortcut={<Shortcut />} className="w-lg mb-5" />}
           />
