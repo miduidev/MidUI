@@ -51,7 +51,7 @@ const Page = ({ params }: PageProps) => {
   }
 
   return (
-    <div className="px-8 pt-10 md:pt-16 lg:pt-16 pb-5 min-w-0">
+    <div className="px-1 pt-10 md:pt-16 lg:pt-16 pb-5 min-w-0">
       <article className="prose prose-invert">
         <content.component />
       </article>
