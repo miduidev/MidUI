@@ -5,6 +5,7 @@ import path from "path-browserify";
 import { useMemo, useState } from "react";
 import CodeSelect from "./code-select";
 import { useConfigStore } from "@/store/config";
+import CodeDropdown from "./code-dropdown";
 
 type CodeBlockProps = {
   files: string[];
@@ -35,6 +36,7 @@ export const CodeBlock = ({ files, codes }: CodeBlockProps) => {
 
         <div className="flex items-center gap-[10px] justify-center">
           <CodeSelect files={files} activeIndex={activeIndex} />
+          <CodeDropdown files={files} activeIndex={activeIndex} />
         </div>
       </div>
 

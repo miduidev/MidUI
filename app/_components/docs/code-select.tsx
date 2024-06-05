@@ -13,7 +13,7 @@ const CodeSelect = ({
   const setLanguage = useConfigStore((config) => config.setLanguage);
 
   return (
-    <div className="w-full flex justify-center text-xs">
+    <div className="w-full hidden justify-center text-xs lg:flex">
       <div className="flex mx-3 bg-[#191919] w-fit rounded-md transition-colors duration-300">
         {files.map((v, i) => {
           const ext = path.extname(v).slice(1);
