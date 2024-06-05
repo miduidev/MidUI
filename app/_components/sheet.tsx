@@ -43,7 +43,7 @@ const Sheet = ({ open, setOpen, input }: SheetProps) => {
           key={2}
           initial={{ x: -350 }}
           animate={{ x: 0 }}
-          transition={{ duration: 0.3, damping: 20, type: "spring" }}
+          transition={{ duration: 0.1, damping: 15, type: "spring" }}
           exit={{ x: -350 }}
         >
           <XMarkIcon
