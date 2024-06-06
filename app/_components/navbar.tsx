@@ -65,7 +65,9 @@ function Navbar({
             Sponsor
           </Link>
 
-          <GithubLogo className="transition ease-in-out delay-100 hover:-translate-x-1 cursor-pointer" />
+          <Link target="_blank" href="https://github.com/miduidev/midui">
+            <GithubLogo className="transition ease-in-out delay-100 hover:-translate-x-1 cursor-pointer" />
+          </Link>
         </div>
       </div>
       <Sheet open={sheetOpen} setOpen={setSheetOpen} input={input} />

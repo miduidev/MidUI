@@ -42,15 +42,15 @@ export const footerRoutes = [
   [
     {
       name: "Github",
-      href: "/"
+      href: "https://github.com/miduidev/"
     },
     {
       name: "Discord",
-      href: "/"
+      href: "https://discord.gg/8whQaFEXqT"
     },
     {
       name: "Contribute",
-      href: "/"
+      href: "/docs/contributing"
     }
   ],
   [
@@ -60,15 +60,15 @@ export const footerRoutes = [
     },
     {
       name: "License",
-      href: "/"
+      href: "/license"
     },
     {
       name: "Sponsor",
-      href: "/"
+      href: "https://buymeacoffee.com/shivzee"
     },
     {
       name: "Contact",
-      href: "/"
+      href: "https://discord.gg/8whQaFEXqT"
     }
   ]
 ];
