@@ -4,7 +4,7 @@ import { ErrorAlert } from "./example";
 const metadata = {
   title: "Error Alert",
   description:
-    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat necessitatibus cupiditate, voluptate excepturi earum quas esse nisi consectetur itaque nam sit accusamus, eius quae veniam laudantium totam. Hic, nam alias?",
+    "A striking, customizable Error Alert component designed with TailwindCSS for clear, responsive, and accessible error notifications.",
   category: "alert",
   component: ErrorAlert,
 } satisfies Metadata;
