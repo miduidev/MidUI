@@ -57,7 +57,7 @@ const CodeDropdown = ({
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.1 }}
             className="flex w-full justify-end">
-            <div className="absolute flex flex-col items-end justify-center border border-[#202020] mt-2 rounded-md divide-y divide-solid divide-[#202020]">
+            <div className="absolute z-30 flex flex-col items-end justify-center border border-[#202020] mt-2 rounded-md divide-y divide-solid divide-[#202020]">
                 {
                         files.map((v, i) => {
                             if (activeIndex === i) {

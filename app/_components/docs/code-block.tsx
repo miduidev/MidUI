@@ -14,6 +14,7 @@ type CodeBlockProps = {
 
 export const CodeBlock = ({ files, codes }: CodeBlockProps) => {
   const lang = useConfigStore((config) => config.language);
+  const [view, setView] = useState(false);
   const activeIndex = useMemo(() => {
     for (let i = 0; i < files.length; i++)
       if (path.extname(files[i]) === `.${lang}`) {
@@ -40,12 +41,20 @@ export const CodeBlock = ({ files, codes }: CodeBlockProps) => {
         </div>
       </div>
 
-      <div className="flex flex-col p-[16px] bg-[#121212] rounded-[10px] rounded-t-none">
+      <div style={{maxHeight : view?"":"300px"}} className="relative flex flex-col p-[16px] bg-[#121212] rounded-[10px] rounded-t-none overflow-hidden">
         <div
           dangerouslySetInnerHTML={{
             __html: codes[activeIndex ?? 0],
           }}
         ></div>
+        { 
+          !view &&
+          <div className="absolute bottom-0 w-full h-32 bg-gradient-to-b from-transparent to-[#141414]">
+            <div className="flex w-full justify-center items-end h-full">
+              <button onClick={() => {setView(true)}}>View Source</button>
+            </div>
+          </div>
+        }
       </div>
     </div>
   );
