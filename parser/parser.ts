@@ -7,6 +7,13 @@ import { Metadata } from "@/lib/types";
 import { v4 } from "uuid";
 import { metadataSchema } from "./schema";
 
+const params: string[] = process.argv.slice(2);
+let LOG_FILES = true;
+
+if (params[0] === "--dev" || params[0] === "-D") { 
+  LOG_FILES = false;
+}
+
 type FileMap = Record<
   string,
   {
@@ -29,7 +36,9 @@ const main = async () => {
     const dirName = path.dirname(file);
 
     if (path.basename(file) === "info.tsx") {
-      console.log("../data" + file.replace(BASE_DIR, ""));
+      if (LOG_FILES) { 
+        console.log("../data" + file.replace(BASE_DIR, ""));
+      }
       data.push(
         `import ${"n" + i} from '@/data${file
           .replace(BASE_DIR, "")
