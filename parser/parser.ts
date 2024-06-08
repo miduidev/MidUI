@@ -92,9 +92,9 @@ const main = async () => {
       contents.push(serialize(html));
     }
     names.push(
-      `{id: "${v4()}", metadata: ${importId}, code: [${contents.join(
+      `{id: "${v4()}", metadata: ${importId}, code: [${contents.reverse().join(
         ",\n"
-      )}], files : [${files.join(",\n")}]}`
+      )}], files : [${files.reverse().join(",\n")}]}`
     );
   }
 
