@@ -2,10 +2,10 @@
 import { useState } from "react";
 
 export function Input() {
-  const [files, setFiles] = useState<Array<File>>([]);
+  const [files, setFiles] = useState([]);
 
-  function handleOnChange(e: React.ChangeEvent<HTMLInputElement>) {
-    const files: File[] = Array.from(e.target.files!);
+  function handleOnChange(e) {
+    const files = Array.from(e.target.files);
     setFiles(files);
   }
 
@@ -40,7 +40,6 @@ export function Input() {
     </div>
   );
 }
-
 
 function FileIcon() {
   return (
