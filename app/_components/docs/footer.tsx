@@ -2,14 +2,13 @@ import Logo from "@/assets/logo.svg";
 import Link from "next/link";
 import { footerRoutes } from "@/utils";
 import Edit from "./edit";
-import Image from "next/image";
 
 const Footer = () => {
 
     const information = footerRoutes;
 
   return (
-      <div className="flex flex-col">
+      <div className="flex flex-col mt-14 md:mt-16">
         <Edit />
         <div className='flex flex-col pt-10 border-t-2 border-gray-100 border-opacity-20'>
             <div className="flex flex-col md:flex-row justify-between items-center md:items-start">
