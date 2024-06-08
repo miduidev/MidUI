@@ -68,7 +68,7 @@ const CodeDropdown = ({
                             <button onClick={(e) => {
                                     e.preventDefault();
                                     setSelectOpen(false);
-                                    setLanguage(ext as "tsx" | "html" | "vue");
+                                    setLanguage(ext as "tsx" | "jsx" | "html" | "vue");
                                 }} key={i} className="px-2 py-1 uppercase rounded-md bg-[#141414]" >
                                 <div className="flex items-center space-x-2 pointer-events-none">
                                     <span>{ext}</span>

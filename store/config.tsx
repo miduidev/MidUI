@@ -2,7 +2,7 @@ import { create } from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
 
 type State = {
-  language: "tsx" | "html" | "vue";
+  language: "tsx" | "jsx" | "html" | "vue";
   setLanguage: (language: State["language"]) => void;
 };
 

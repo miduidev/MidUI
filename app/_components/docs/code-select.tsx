@@ -24,7 +24,7 @@ const CodeSelect = ({
               midui-id={i}
               onClick={(e) => {
                 e.preventDefault();
-                setLanguage(ext as "tsx" | "html" | "vue");
+                setLanguage(ext as "tsx" | "jsx" | "html" | "vue");
               }}
               className={`${
                 (activeIndex ?? 0) === i && "bg-[#1565C0]"
