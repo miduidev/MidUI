@@ -20,6 +20,7 @@ const SideNav = ({ className, input }: SideNavProps) => {
   return (
     <div className={cn("sticky top-0 h-max pt-10 shrink-0", className)}>
       {input}
+      <div className="absolute w-full h-10 bg-gradient-to-b from-[#141414] to-transparent"></div>
       <div className="max-h-[85vh] overflow-x-hidden overflow-y-hidden hover:overflow-y-auto pl-3 midui-scroll">
         <h2 className="mt-8 font-semibold text-[20px] mb-3">Documentation</h2>
         <div
