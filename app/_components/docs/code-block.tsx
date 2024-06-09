@@ -6,6 +6,8 @@ import { useMemo, useState } from "react";
 import CodeSelect from "./code-select";
 import { useConfigStore } from "@/store/config";
 import CodeDropdown from "./code-dropdown";
+import { CodeBracketIcon } from "@heroicons/react/24/outline";
+import CopyToClipboard from "./copy-to-clipboard";
 
 type CodeBlockProps = {
   files: string[];
@@ -31,9 +33,12 @@ export const CodeBlock = ({ files, codes }: CodeBlockProps) => {
           "flex items-center justify-between"
         )}
       >
-        <p className="font-medium text-[12px]">
-          {path.basename(files[activeIndex ?? 0])}
-        </p>
+        <div className="flex items-center space-x-1">
+          <CopyToClipboard code={codes[activeIndex||0]} />
+          <p className="font-medium text-[12px]">
+            {path.basename(files[activeIndex ?? 0])}
+          </p>
+        </div>
 
         <div className="flex items-center gap-[10px] justify-center">
           <CodeSelect files={files} activeIndex={activeIndex} />
@@ -51,7 +56,10 @@ export const CodeBlock = ({ files, codes }: CodeBlockProps) => {
           !view &&
           <div className="absolute bottom-0 w-full h-32 bg-gradient-to-b from-transparent to-[#141414]">
             <div className="flex w-full justify-center items-end h-full">
-              <button onClick={() => {setView(true)}}>View Source</button>
+                <button className="text-sm flex items-center space-x-1" onClick={() => { setView(true) }}>
+                  <CodeBracketIcon className="size-4" />
+                  <span>View Source</span>
+              </button>
             </div>
           </div>
         }

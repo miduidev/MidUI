@@ -38,6 +38,12 @@ export const getNonEncodedId = (id: string) => {
 }
 
 
+export const getCleanCode = (htmlCode : string) => {
+  const code = document.createElement("div");
+  code.innerHTML = htmlCode;
+  return code.innerText;
+}
+
 export const footerRoutes = [
   [
     {
