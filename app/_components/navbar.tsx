@@ -52,7 +52,7 @@ function Navbar({
         <div className="flex items-center justify-center gap-8">
           {!pathname.startsWith("/docs") && (
             <Link
-              href="/docs"
+              href="/docs/getting-started"
               className="text-[16px] transition ease-in-out delay-100 hover:-translate-x-1 hover:text-[#0D92FC]"
             >
               Docs
