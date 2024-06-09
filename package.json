@@ -6,7 +6,8 @@
     "dev": "nodemon & next dev",
     "build": "tsx parser/parser.ts && next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "cli" : "tsx utils/cli.ts"
   },
   "dependencies": {
     "@heroicons/react": "^2.1.3",
