@@ -120,6 +120,18 @@ code .line::before {
 
   filter: blur(200px);
   transform: rotate(-111deg);
+
+  animation: pulse 10s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
 }
 
 .command-palette-content .bg-gray-900 {
