@@ -22,7 +22,7 @@ const SideNav = ({ className, input }: SideNavProps) => {
       {input}
       <div className='absolute w-full h-10 bg-gradient-to-b from-[#141414] to-transparent'></div>
       <div className='max-h-[85vh] overflow-x-hidden overflow-y-hidden hover:overflow-y-auto pl-3 midui-scroll'>
-        <h2 className='mt-8 font-semibold text-[18px] mb-3'>Documentation</h2>
+        <h2 className='mt-8 font-semibold text-[18px] mb-2'>Documentation</h2>
         <div
           className={cn(
             'items-start justify-center flex flex-col',
@@ -44,7 +44,7 @@ const SideNav = ({ className, input }: SideNavProps) => {
           ))}
         </div>
 
-        <h2 className='mt-8 font-semibold text-[18px] mb-3'>Components</h2>
+        <h2 className='mt-8 font-semibold text-[18px] mb-2'>Components</h2>
 
         <div
           className={cn(

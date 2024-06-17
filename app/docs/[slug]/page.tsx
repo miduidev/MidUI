@@ -1,6 +1,6 @@
-import { contents } from "@/lib/emitter/docs";
-import { Metadata } from "next";
-import { notFound } from "next/navigation";
+import { contents } from '@/lib/emitter/docs';
+import { Metadata } from 'next';
+import { notFound } from 'next/navigation';
 
 type PageProps = {
   params: { slug: string };
@@ -14,7 +14,7 @@ export async function generateMetadata({
     return {};
   }
 
-  const title = c.name + " - MidUI";
+  const title = c.name + ' - MidUI';
   const description = `Read documentation at MidUI`;
   return {
     title,
@@ -22,7 +22,7 @@ export async function generateMetadata({
     openGraph: {
       title,
       description,
-      type: "article",
+      type: 'article',
       images: [
         {
           url: `/api/${c.name}`,
@@ -30,7 +30,7 @@ export async function generateMetadata({
       ],
     },
     twitter: {
-      card: "summary_large_image",
+      card: 'summary_large_image',
       title: title,
       description: description,
       images: [`/api/${c.name}`],
@@ -51,8 +51,8 @@ const Page = ({ params }: PageProps) => {
   }
 
   return (
-    <div className="px-1 pt-10 md:pt-16 lg:pt-16 pb-5 min-w-0">
-      <article className="prose prose-invert">
+    <div className='px-1 min-w-0'>
+      <article className='prose prose-invert'>
         <content.component />
       </article>
     </div>
