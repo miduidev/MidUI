@@ -49,12 +49,12 @@ const main = async () => {
         `@/data${file.replace(BASE_DIR, '')}`
       )) as { default: Metadata };
 
-      // const res = metadataSchema.safeParse(Comp);
-      // if (!res.success) {
-      //   console.log(`Error while parsing metadata: ${file}`);
-      //   console.log(res.error.flatten());
-      //   process.exit(1);
-      // }
+      const res = metadataSchema.safeParse(Comp);
+      if (!res.success) {
+        console.log(`Error while parsing metadata: ${file}`);
+        console.log(res.error.flatten());
+        process.exit(1);
+      }
 
       categories.add(Comp.category);
 
