@@ -15,7 +15,7 @@ const CopyToClipboard = ({ code }: {code : string}) => {
     }
 
     return (
-        <button onClick={copyCode} className="relative p-1 rounded-md bg-[#1565C0]">
+        <button onClick={copyCode} className={`relative p-1 rounded-md ${isVisible?"bg-[#1565C0]":""}`}>
             <ClipboardDocumentListIcon className="size-4" />
             {
                 isVisible
