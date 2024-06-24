@@ -1,0 +1,15 @@
+<template>
+    <div class="flex items-center space-x-3 animate-pulse">
+      <div class="size-14 rounded-full bg-[#202020]"></div>
+      <div class="flex flex-col space-y-2">
+        <div class="rounded-md h-4 w-48 bg-[#202020]"></div>
+        <div class="rounded-md h-4 w-40 bg-[#202020]"></div>
+      </div>
+    </div>
+</template>
+  
+<script>
+  export default {
+    name: "Example"
+  };
+</script>
