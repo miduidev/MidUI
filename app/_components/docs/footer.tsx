@@ -2,6 +2,7 @@ import Logo from '@/assets/logo.svg';
 import Link from 'next/link';
 import { footerRoutes } from '@/utils';
 import Edit from './edit';
+import DevsOverview from './devs-overview';
 
 const Footer = () => {
   const information = footerRoutes;
@@ -11,13 +12,19 @@ const Footer = () => {
       <Edit />
       <div className='flex flex-col pt-10 border-t-2 border-gray-100 border-opacity-20'>
         <div className='flex flex-col md:flex-row justify-between items-center md:items-start'>
-          <div className='flex items-center'>
-            <Logo className='size-16' />
-            <div className='flex flex-col'>
-              <h1 className='font-bold text-3xl mt-1'>MidUI</h1>
-              <span className='self-end text-sm'>❤️ Open source</span>
+        
+          <div className="flex flex-col">
+            
+            <div className='flex items-center'>
+              <Logo className='size-16' />
+              <div className='flex flex-col justify-center'>
+                <h1 className='font-bold text-3xl mt-1'>MidUI</h1>
+                <span className='self-end text-sm'>❤️ Open source</span>
+              </div>
             </div>
+            <DevsOverview />
           </div>
+          
 
           <div className='flex text-[#b2b2b2] justify-around mt-10 md:mt-0 space-x-8 items-start w-full md:w-fit'>
             {information.map((v, i) => {
