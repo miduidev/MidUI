@@ -1,0 +1,22 @@
+<div id="progress-container" class="relative bg-gray-800 rounded-full flex items-start w-full md:w-1/2 h-5 overflow-hidden">
+    <div id="progress-bar" class="h-full w-full bg-[#4BB543] rounded-full transition-all"></div>
+    <span id="progress-text" class="absolute text-white font-bold text-sm left-1/2"></span>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        let progress = 2;
+        const progressBar = document.getElementById('progress-bar');
+        const progressText = document.getElementById('progress-text');
+
+        const timer = setInterval(() => {
+            progress = Math.min(100, progress + 10);
+            progressBar.style.transform = `translateX(-${100 - progress}%)`;
+            progressText.textContent = `${progress}%`;
+
+            if (progress === 100) {
+                clearInterval(timer);
+            }
+        }, 800);
+    });
+</script>
