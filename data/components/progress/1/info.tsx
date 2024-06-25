@@ -3,7 +3,7 @@ import { Progress } from './example';
 
 const metadata = {
   title: 'Progress Bar',
-  description: 'A progress bar made with tailwind css.',
+  description: 'A sleek Progress Bar component, designed with TailwindCSS, offering clear, responsive, and visually appealing progress indicators.',
   category: 'progress',
   component: Progress,
 } satisfies Metadata;
