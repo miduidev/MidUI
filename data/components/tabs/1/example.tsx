@@ -1,66 +1,76 @@
-"use client"
-import {useState } from "react";
+'use client';
+import { useState } from 'react';
 
 const Example = () => {
-    const [active , setActive] = useState(0);
+  const [active, setActive] = useState(0);
 
-    const tabs = [
-        {
-            name : "Profile" ,
-            element : <ProfileComponent />
-        },
-        {
-            name : "Description" ,
-            element : <DescriptionComponent />
-        },
-    ];
+  const tabs = [
+    {
+      name: 'Profile',
+      element: <ProfileComponent />,
+    },
+    {
+      name: 'Description',
+      element: <DescriptionComponent />,
+    },
+  ];
 
-    const changeTabs = (tabIndex : number) => {
-        setActive(tabIndex);
-    }
+  const changeTabs = (tabIndex: number) => {
+    setActive(tabIndex);
+  };
 
-    return (
-        <div className="flex flex-col space-y-2 w-1/2">
-            <div className="flex p-1 rounded-md bg-[#181818] items-center">
-                {
-                    tabs.map((tab,i)=>(
-                        <button key={i} onClick={()=>changeTabs(i)} className={`transition-colors duration-200 grow px-4 py-2 rounded-md ${active===i?"bg-[#1565C0]":"bg-transparent"} flex justify-center`}>
-                            <span className="pointer-events-none">{tab.name}</span>
-                        </button>
-                    ))
-                }
-            </div>
-            <div className="p-2 bg-[#181818] rounded-md">
-                {tabs[active].element}
-            </div>
+  return (
+    <div className='flex flex-col space-y-2 text-sm w-[300px]'>
+      <div className='flex p-1 rounded-md bg-[#181818] items-center shrink-0'>
+        {tabs.map((tab, i) => (
+          <button
+            key={i}
+            onClick={() => changeTabs(i)}
+            className={`transition-colors duration-200 px-4 py-2 rounded-md ${
+              active === i ? 'bg-[#1565C0]' : 'bg-transparent'
+            } flex flex-1 justify-center items-center`}
+          >
+            <span className='pointer-events-none'>{tab.name}</span>
+          </button>
+        ))}
+      </div>
+      <div className='bg-[#181818] rounded-md grow'>{tabs[active].element}</div>
+    </div>
+  );
+};
+
+function ProfileComponent() {
+  return (
+    <div className='flex flex-col px-4 py-2'>
+      <div className='flex space-x-4 my-5'>
+        <img
+          className='cursor-pointer object-cover size-16 rounded-full'
+          src='https://cataas.com/cat?width=300&height=300'
+          alt='profile'
+        />
+        <div className='flex flex-col'>
+          <span className='text-lg'>Mr. Cat</span>
+          <span className='text-gray-400'>Software Engineer at MidUI</span>
         </div>
-    )
+      </div>
+    </div>
+  );
 }
 
-function ProfileComponent(){
-    return (
-        <div className="flex flex-col">
-            <div className="flex space-x-2 my-5">
-            <img className="cursor-pointer object-cover size-16 rounded-full" src="https://cataas.com/cat?width=300&height=300"alt="profile" />
-                <div className="flex flex-col">
-                    <span className="text-lg">Mr. Cat</span>
-                    <span>Software Engineer at MidUI</span>
-                </div>
-            </div>
-        </div>
-    )
-}
-
-function DescriptionComponent(){
-    return (
-        <div className="flex flex-col max-w-xl">
-            <span className="text-xl">Mr. Cat</span>
-            <br />
-            <p>
-            To leverage my expertise in napping, toy mouse retrieval, and purr therapy to bring joy and stress relief to a loving home or office environment. Seeking a position where my impeccable litter box manners and unparalleled ability to find the sunny spot will be appreciated and celebrated.
-            </p>
-        </div>
-    )
+function DescriptionComponent() {
+  return (
+    <div className='flex flex-col max-w-xl space-y-2 p-4'>
+      <span className='text-xl'>Mr. Cat</span>
+      <br />
+      <p className='text-gray-300'>
+        To leverage my expertise in napping, toy mouse retrieval, and purr
+        therapy to bring joy and stress relief to a loving home or office
+        environment. Seeking a position where my impeccable litter box manners
+        and unparalleled ability to find the sunny spot will be appreciated and
+        celebrated.
+      </p>
+    </div>
+  );
 }
 
 export default Example;

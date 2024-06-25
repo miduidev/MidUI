@@ -1,111 +1,130 @@
-<div id="app" class="flex flex-col space-y-2 w-1/2">
-    <div id="tabsContainer" class="flex p-1 rounded-md bg-[#181818] items-center"></div>
-    <div id="contentContainer" class="p-2 bg-[#181818] rounded-md"></div>
-  </div>
+<div id="app" class="flex flex-col space-y-2 w-1/2 text-sm">
+  <div
+    id="tabsContainer"
+    class="flex p-1 rounded-md bg-[#181818] items-center"
+  ></div>
+  <div id="contentContainer" class="p-2 bg-[#181818] rounded-md"></div>
+</div>
 
-  <script>
-    // Tabs data
-    const tabs = [
-      {
-        name: "Profile",
-        element: ProfileComponent()
-      },
-      {
-        name: "Description",
-        element: DescriptionComponent()
+<script>
+  // Tabs data
+  const tabs = [
+    {
+      name: 'Profile',
+      element: ProfileComponent(),
+    },
+    {
+      name: 'Description',
+      element: DescriptionComponent(),
+    },
+  ];
+
+  // Initial state
+  let active = 0;
+
+  // Function to render tabs
+  function renderTabs() {
+    const tabsContainer = document.getElementById('tabsContainer');
+    tabsContainer.innerHTML = ''; // Clear previous content
+
+    tabs.forEach((tab, i) => {
+      const button = document.createElement('button');
+      button.textContent = tab.name;
+      button.classList.add(
+        'transition-colors',
+        'duration-200',
+        'grow',
+        'px-4',
+        'py-2',
+        'rounded-md',
+        'flex',
+        'justify-center'
+      );
+      if (active === i) {
+        button.classList.add('bg-[#1565C0]');
+      } else {
+        button.classList.add('bg-transparent');
       }
-    ];
+      button.addEventListener('click', () => changeTabs(i));
+      tabsContainer.appendChild(button);
+    });
+  }
 
-    // Initial state
-    let active = 0;
+  // Function to render content based on active tab
+  function renderContent() {
+    const contentContainer = document.getElementById('contentContainer');
+    contentContainer.innerHTML = ''; // Clear previous content
 
-    // Function to render tabs
-    function renderTabs() {
-      const tabsContainer = document.getElementById('tabsContainer');
-      tabsContainer.innerHTML = ''; // Clear previous content
+    const element = tabs[active].element;
+    contentContainer.appendChild(element);
+  }
 
-      tabs.forEach((tab, i) => {
-        const button = document.createElement('button');
-        button.textContent = tab.name;
-        button.classList.add('transition-colors', 'duration-200', 'grow', 'px-4', 'py-2', 'rounded-md', 'flex', 'justify-center');
-        if (active === i) {
-          button.classList.add('bg-[#1565C0]');
-        } else {
-          button.classList.add('bg-transparent');
-        }
-        button.addEventListener('click', () => changeTabs(i));
-        tabsContainer.appendChild(button);
-      });
-    }
-
-    // Function to render content based on active tab
-    function renderContent() {
-      const contentContainer = document.getElementById('contentContainer');
-      contentContainer.innerHTML = ''; // Clear previous content
-
-      const element = tabs[active].element;
-      contentContainer.appendChild(element);
-    }
-
-    // Function to change active tab
-    function changeTabs(tabIndex) {
-      active = tabIndex;
-      renderTabs();
-      renderContent();
-    }
-
-    // Profile component function
-    function ProfileComponent() {
-      const profileDiv = document.createElement('div');
-      profileDiv.classList.add('flex', 'flex-col');
-
-      const innerDiv = document.createElement('div');
-      innerDiv.classList.add('flex', 'space-x-2', 'my-5');
-      profileDiv.appendChild(innerDiv);
-
-      const img = document.createElement('img');
-      img.classList.add('cursor-pointer', 'object-cover', 'h-16', 'w-16', 'rounded-full');
-      img.src = 'https://cataas.com/cat?width=300&height=300';
-      img.alt = 'profile';
-      innerDiv.appendChild(img);
-
-      const textDiv = document.createElement('div');
-      textDiv.classList.add('flex', 'flex-col', 'ml-4');
-      innerDiv.appendChild(textDiv);
-
-      const nameSpan = document.createElement('span');
-      nameSpan.classList.add('text-lg');
-      nameSpan.textContent = 'Mr. Cat';
-      textDiv.appendChild(nameSpan);
-
-      const jobSpan = document.createElement('span');
-      jobSpan.textContent = 'Software Engineer at MidUI';
-      textDiv.appendChild(jobSpan);
-
-      return profileDiv;
-    }
-
-    // Description component function
-    function DescriptionComponent() {
-      const descDiv = document.createElement('div');
-      descDiv.classList.add('flex', 'flex-col', 'max-w-xl');
-
-      const nameSpan = document.createElement('span');
-      nameSpan.classList.add('text-xl');
-      nameSpan.textContent = 'Mr. Cat';
-      descDiv.appendChild(nameSpan);
-
-      const br = document.createElement('br');
-      descDiv.appendChild(br);
-
-      const p = document.createElement('p');
-      p.textContent = 'To leverage my expertise in napping, toy mouse retrieval, and purr therapy to bring joy and stress relief to a loving home or office environment. Seeking a position where my impeccable litter box manners and unparalleled ability to find the sunny spot will be appreciated and celebrated.';
-      descDiv.appendChild(p);
-
-      return descDiv;
-    }
-
-    // Initial render
+  // Function to change active tab
+  function changeTabs(tabIndex) {
+    active = tabIndex;
     renderTabs();
     renderContent();
-  </script>
+  }
+
+  // Profile component function
+  function ProfileComponent() {
+    const profileDiv = document.createElement('div');
+    profileDiv.classList.add('flex', 'flex-col');
+
+    const innerDiv = document.createElement('div');
+    innerDiv.classList.add('flex', 'space-x-2', 'my-5');
+    profileDiv.appendChild(innerDiv);
+
+    const img = document.createElement('img');
+    img.classList.add(
+      'cursor-pointer',
+      'object-cover',
+      'h-16',
+      'w-16',
+      'rounded-full'
+    );
+    img.src = 'https://cataas.com/cat?width=300&height=300';
+    img.alt = 'profile';
+    innerDiv.appendChild(img);
+
+    const textDiv = document.createElement('div');
+    textDiv.classList.add('flex', 'flex-col', 'ml-4');
+    innerDiv.appendChild(textDiv);
+
+    const nameSpan = document.createElement('span');
+    nameSpan.classList.add('text-lg');
+    nameSpan.textContent = 'Mr. Cat';
+    textDiv.appendChild(nameSpan);
+
+    const jobSpan = document.createElement('span');
+    jobSpan.textContent = 'Software Engineer at MidUI';
+    textDiv.appendChild(jobSpan);
+
+    return profileDiv;
+  }
+
+  // Description component function
+  function DescriptionComponent() {
+    const descDiv = document.createElement('div');
+    descDiv.classList.add('flex', 'flex-col', 'max-w-xl');
+
+    const nameSpan = document.createElement('span');
+    nameSpan.classList.add('text-xl');
+    nameSpan.textContent = 'Mr. Cat';
+    descDiv.appendChild(nameSpan);
+
+    const br = document.createElement('br');
+    descDiv.appendChild(br);
+
+    const p = document.createElement('p');
+    p.textContent =
+      'To leverage my expertise in napping, toy mouse retrieval, and purr therapy to bring joy and stress relief to a loving home or office environment. Seeking a position where my impeccable litter box manners and unparalleled ability to find the sunny spot will be appreciated and celebrated.';
+    descDiv.appendChild(p);
+
+    return descDiv;
+  }
+
+  // Initial render
+  renderTabs();
+  renderContent();
+</script>
