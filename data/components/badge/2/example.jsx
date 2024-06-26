@@ -1,0 +1,15 @@
+const Badge = () => {
+    return (
+        <>
+        
+        <div className="bg-transparent text-white border border-white font-semibold p-1 rounded-md select-none">Badge</div>
+        
+        <div className="bg-transparent text-[#2E7D32] border border-[#2E7D32] font-semibold p-1 rounded-md select-none">Badge</div>
+
+        <div className="bg-transparent text-pink-500 border border-pink-500 font-semibold p-1 rounded-md select-none">Badge</div>
+
+        </>
+    )
+}
+
+export default Badge;
