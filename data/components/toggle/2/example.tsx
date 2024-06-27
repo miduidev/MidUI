@@ -7,7 +7,7 @@ export function Toggle() {
   return (
     <button
       className={`hover:bg-[#27272A] p-3 flex items-center justify-center rounded-md transition-colors ${
-        enabled ? 'bg-[#27272A]' : 'bg-[#141414]'
+        enabled ? 'bg-[#27272A]' : 'bg-transparent'
       } border-[#27272A] border-2`}
       onClick={() => setEnabled((e) => !e)}
     >
