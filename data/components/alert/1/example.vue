@@ -1,6 +1,6 @@
 <template>
   <div
-    class="border-2 border-[#FBC02D] bg-[#111111] px-5 py-3 gap-[10px] rounded-[10px] flex items-center justify-start min-w-max"
+    class="border-2 border-[#FBC02D] bg-[#111111] px-3 md:px-5 py-1 md:py-3 gap-[10px] rounded-[10px] flex items-center justify-start min-w-max"
   >
     <svg
       width="22"
@@ -18,7 +18,7 @@
       />
     </svg>
 
-    <p class="text-[#FBC02D] text-[16px]">
+    <p class="text-[#FBC02D] text-[12px] md:text-[14px] lg:text-[16px]">
       This is a warning variant of the alert!
     </p>
   </div>

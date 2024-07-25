@@ -18,11 +18,11 @@ const Accordion = () => {
     }
 
     return (
-        <div  className="flex flex-col space-y-4 w-96 bg-transparent p-4">
+        <div  className="flex flex-col space-y-4 w-80 md:w-96 bg-transparent p-2 md:p-4">
         {
             FAQs.map((faq, i)=>{
                 return (
-                    <div className="flex flex-col border-b border-[#191919] pb-3">
+                    <div className="flex flex-col border-b border-[#191919] pb-3 text-sm md:text-base">
                         <button key={i} onClick={()=>{handleClick(i)}} className="flex justify-between w-full hover:underline cursor-pointer">
                             <span>{faq.question}</span>
 

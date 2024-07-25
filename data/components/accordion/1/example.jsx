@@ -18,7 +18,7 @@ const Accordion = () => {
     }
 
     return (
-        <div  className="flex flex-col space-y-4 w-96 bg-transparent p-4">
+        <div  className="flex flex-col space-y-4 w-80 md:w-96 bg-transparent p-2 md:p-4">
         {
             FAQs.map((faq, i)=>{
                 return (

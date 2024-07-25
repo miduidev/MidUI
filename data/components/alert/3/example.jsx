@@ -1,6 +1,6 @@
 export function InfoAlert() {
   return (
-    <div className="border-2 border-[#1565C0] bg-[#111111] px-5 py-3 gap-[10px] rounded-[10px] flex items-center justify-start min-w-max">
+    <div className="border-2 border-[#1565C0] bg-[#111111] px-3 md:px-5 py-1 md:py-3 gap-[10px] rounded-[10px] flex items-center justify-start min-w-max">
       <svg
         width="22"
         height="22"
@@ -17,7 +17,7 @@ export function InfoAlert() {
         />
       </svg>
 
-      <p className="text-[#1565C0] text-[16px]">
+      <p className="text-[#1565C0] text-[12px] md:text-[14px] lg:text-[16px]">
         This is an info variant of the alert!
       </p>
     </div>
