@@ -6,3 +6,9 @@ export type Metadata = {
   component: FC;
   category: string;
 };
+
+export type UIComponent = {
+  metadata: Metadata;
+  code: string[];
+  files: string[];
+};

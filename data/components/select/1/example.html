@@ -1,0 +1,129 @@
+<div class="relative inline-block text-left w-64">
+    <div>
+      <button
+        id="select-button"
+        type="button"
+        class="text-[#E9EEF2] bg-[#161616] items-center inline-flex justify-between w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 text-sm font-medium hover:bg-[#191919]"
+      >
+        Select an option
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8.25 15L12 18.75L15.75 15M8.25 9L12 5.25L15.75 9" stroke="#E9EEF2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+    <div
+      id="dropdown"
+      class="bg-[#161616] origin-top-right absolute mt-2 w-full rounded-md shadow-lg hidden"
+    >
+      <div class="py-1">
+        <!-- Options will be automatically inserted here -->
+      </div>
+    </div>
+  </div>
+
+<script>
+    const options = [
+      { value: "jsx", label: "JSX" },
+      { value: "tsx", label: "TSX" },
+      { value: "html", label: "HTML" },
+      { value: "vue", label: "Vue" },
+    ];
+
+    let isOpen = false;
+    let selectedOption = null;
+    let dropUp = false;
+    let highlightedIndex = -1;
+
+    const dropdown = document.getElementById('dropdown');
+    const selectButton = document.getElementById('select-button');
+
+    const handleOptionClick = (option, index) => {
+      selectedOption = option;
+      selectButton.innerHTML = `${option.label}
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8.25 15L12 18.75L15.75 15M8.25 9L12 5.25L15.75 9" stroke="#E9EEF2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>`;
+      onSelect(option);
+      isOpen = false;
+      highlightedIndex = -1;
+      renderDropdown();
+    };
+
+    const handleClickOutside = (e) => {
+      if (!dropdown.contains(e.target) && !selectButton.contains(e.target)) {
+        isOpen = false;
+        highlightedIndex = -1;
+        renderDropdown();
+      }
+    };
+
+    const checkDropdownPosition = () => {
+      const buttonRect = selectButton.getBoundingClientRect();
+      const dropdownHeight = dropdown.getBoundingClientRect().height;
+      const spaceBelow = window.innerHeight - buttonRect.bottom;
+      const spaceAbove = buttonRect.top;
+
+      dropUp = dropdownHeight > spaceBelow && spaceAbove > spaceBelow;
+    };
+
+    const handleKeyDown = (e) => {
+      if (!isOpen) return;
+
+      switch (e.key) {
+        case 'ArrowDown':
+          highlightedIndex = (highlightedIndex === options.length - 1) ? 0 : highlightedIndex + 1;
+          break;
+        case 'ArrowUp':
+          highlightedIndex = (highlightedIndex === 0) ? options.length - 1 : highlightedIndex - 1;
+          break;
+        case 'Enter':
+          if (highlightedIndex >= 0) {
+            handleOptionClick(options[highlightedIndex], highlightedIndex);
+          }
+          break;
+        case 'Escape':
+          isOpen = false;
+          highlightedIndex = -1;
+          break;
+        default:
+          break;
+      }
+      renderDropdown();
+    };
+
+    const renderDropdown = () => {
+      const dropdownContent = dropdown.querySelector('.py-1');
+      dropdownContent.innerHTML = '';
+
+      options.forEach((option, index) => {
+        const optionButton = document.createElement('button');
+        optionButton.textContent = option.label;
+        optionButton.classList.add('block', 'px-4', 'py-2', 'text-sm', 'w-full', 'text-left', 'text-[#E9EEF2]');
+        if (highlightedIndex === index) {
+          optionButton.classList.add('bg-gray-200', 'text-black');
+        } else {
+          optionButton.classList.add('hover:bg-[#191919]');
+        }
+        optionButton.addEventListener('click', () => handleOptionClick(option, index));
+        dropdownContent.appendChild(optionButton);
+      });
+
+      dropdown.style.display = isOpen ? 'block' : 'none';
+      dropdown.style.bottom = dropUp ? '100%' : 'auto';
+      dropdown.style.top = dropUp ? 'auto' : '100%';
+    };
+
+    selectButton.addEventListener('click', () => {
+      isOpen = !isOpen;
+      checkDropdownPosition();
+      renderDropdown();
+    });
+
+    document.addEventListener('mousedown', handleClickOutside);
+    window.addEventListener('resize', checkDropdownPosition);
+    document.addEventListener('keydown', handleKeyDown);
+
+    const onSelect = (option) => {
+      console.log('Selected option:', option);
+    };
+</script>

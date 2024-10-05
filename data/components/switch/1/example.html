@@ -1,0 +1,26 @@
+<button id="switch-button" class="h-6 w-12 rounded-full relative inline-flex items-center transition-colors bg-[#0a2246]">
+    <div id="switch-indicator" class="h-5 w-5 rounded-full bg-white absolute left-1 transition-all translate-x-0"></div>
+</button>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const button = document.getElementById('switch-button');
+      const indicator = document.getElementById('switch-indicator');
+      let enabled = false;
+
+      button.addEventListener('click', () => {
+        enabled = !enabled;
+        if (enabled) {
+          button.classList.remove('bg-[#0a2246]');
+          button.classList.add('bg-[#1565C0]');
+          indicator.classList.add('translate-x-5');
+          indicator.classList.remove('translate-x-0');
+        } else {
+          button.classList.remove('bg-[#1565C0]');
+          button.classList.add('bg-[#0a2246]');
+          indicator.classList.add('translate-x-0');
+          indicator.classList.remove('translate-x-5');
+        }
+      });
+    });
+</script>

@@ -1,22 +1,38 @@
+"use client";
+
 import SearchIcon from "@/assets/search.svg";
 import { cn } from "@/utils/cn";
+import { ClassNameValue } from "tailwind-merge";
+import useOpenStore from "@/store/store";
+import Shortcut from "./shortcut";
 
-function Input() {
+type InputProps = {
+  className?: ClassNameValue;
+  shortcut: React.ReactNode;
+};
+
+function Input({ className, shortcut }: InputProps) {
+  const setOpen = useOpenStore((state) => state.setIsOpen);
+
+  function handleCommandMenu() {
+    setOpen(true);
+  }
   return (
-    <div
+    <button
       className={cn(
-        "rounded-[10px] border border-[#27272A]",
-        "px-[20px] py-[15px] gap-[10px]",
+        "rounded-[10px] border-2 border-[#27272A]",
+        "px-[20px] py-[10px] gap-[10px]",
         "flex items-center justify-center",
-        "relative max-w-max"
+        "relative w-max focus-within:border-[#1565C0] transition-colors",
+        "hover:cursor-text",
+        className
       )}
+      onClick={handleCommandMenu}
     >
-      <SearchIcon />
-      <input
-        type="text"
-        className="w-full placeholder:text-[#545353] bg-transparent outline-none"
-        placeholder="Search"
-      />
+      <SearchIcon className="w-4 h-4" />
+      <div className="w-28 text-[#545353] bg-transparent outline-none group text-start">
+        Search
+      </div>
 
       <div
         className={cn(
@@ -26,9 +42,9 @@ function Input() {
           "items-center justify-center p-[6px]"
         )}
       >
-        <span>CTRL + K</span>
+        {shortcut}
       </div>
-    </div>
+    </button>
   );
 }
 

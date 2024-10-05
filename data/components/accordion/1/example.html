@@ -1,0 +1,57 @@
+<div id="accordion" class="flex flex-col space-y-4 w-96 bg-transparent p-4">
+    <!-- JavaScript will populate this content -->
+  </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const FAQs = [
+        {question: "What is the price of MidUI?", answer: "Absolutely Nothing! You know we love open source."},
+        {question: "Are components customizable?", answer: "Yes, you can easily customize any component according to your use."},
+        {question: "How do I support MidUI?", answer: "Just star MidUI on GitHub."},
+      ];
+
+      const accordionContainer = document.getElementById('accordion');
+
+      FAQs.forEach((faq, index) => {
+        const accordionItem = document.createElement('div');
+        accordionItem.classList.add('flex', 'flex-col', 'border-b', 'border-[#191919]', 'pb-3');
+
+        const button = document.createElement('button');
+        button.classList.add('flex', 'justify-between', 'w-full', 'hover:underline', 'cursor-pointer');
+        button.textContent = faq.question;
+
+        const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+        svg.setAttribute('class', 'size-4 transition-all duration-300');
+        svg.setAttribute('viewBox', '0 0 24 24');
+        svg.setAttribute('stroke', 'currentColor');
+        svg.setAttribute('stroke-width', '1.5');
+        const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+        path.setAttribute('stroke-linecap', 'round');
+        path.setAttribute('stroke-linejoin', 'round');
+        path.setAttribute('d', 'm19.5 8.25-7.5 7.5-7.5-7.5');
+        svg.appendChild(path);
+
+        const answer = document.createElement('div');
+        answer.classList.add('text-sm', 'mt-2', 'overflow-hidden', 'transition-all', 'duration-300', 'max-h-0', 'opacity-0');
+        answer.textContent = faq.answer;
+
+        button.addEventListener('click', () => {
+          const isOpen = answer.classList.contains('max-h-0');
+          if (isOpen) {
+            answer.classList.remove('max-h-0', 'opacity-0');
+            answer.classList.add('max-h-[200px]', 'opacity-100');
+            svg.classList.add('rotate-180');
+          } else {
+            answer.classList.remove('max-h-[200px]', 'opacity-100');
+            answer.classList.add('max-h-0', 'opacity-0');
+            svg.classList.remove('rotate-180');
+          }
+        });
+
+        button.appendChild(svg);
+        accordionItem.appendChild(button);
+        accordionItem.appendChild(answer);
+        accordionContainer.appendChild(accordionItem);
+      });
+    });
+</script>

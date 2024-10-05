@@ -1,0 +1,24 @@
+export function SuccessAlert() {
+  return (
+    <div className="border-2 border-[#4BB543] bg-[#111111] px-3 md:px-5 py-1 md:py-3 gap-[10px] rounded-[10px] flex items-center justify-start min-w-max">
+      
+          <svg xmlns="http://www.w3.org/2000/svg"
+              height="22"
+              width="22"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth="1.5"
+              stroke="#4BB543"
+            >
+              <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+        </svg>
+
+      <p className="text-[#4BB543] text-[12px] md:text-[14px] lg:text-[16px]">
+        This is an success variant of the alert!
+      </p>
+    </div>
+  );
+}

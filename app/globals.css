@@ -10,6 +10,37 @@
   animation: animation 3s ease infinite;
 }
 
+.midui-scroll::-webkit-scrollbar {
+  height: 6px;
+  width: 6px;
+}
+
+.midui-scroll::-webkit-scrollbar-track {
+  border-radius: 5px;
+  background-color: #141414;
+}
+
+.midui-scroll::-webkit-scrollbar-track:hover {
+  background-color: #141414;
+}
+
+.midui-scroll::-webkit-scrollbar-track:active {
+  background-color: #141414;
+}
+
+.midui-scroll::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background-color: #303030;
+}
+
+.midui-scroll::-webkit-scrollbar-thumb:hover {
+  background-color: #303030;
+}
+
+.midui-scroll::-webkit-scrollbar-thumb:active {
+  background-color: #303030;
+}
+
 @keyframes animation {
   0%,
   100% {
@@ -89,4 +120,54 @@ code .line::before {
 
   filter: blur(200px);
   transform: rotate(-111deg);
+
+  animation: pulse 10s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.command-palette-content .bg-gray-900 {
+  background-color: rgba(0, 0, 0, 0.8) !important;
+}
+
+.command-palette .dark\:bg-gray-900 {
+  background-color: black !important;
+}
+
+.command-palette-list-item:hover {
+  background-color: rgba(20, 20, 20, 0.7) !important;
+}
+
+.command-palette .bg-gray-200\/50 {
+  background-color: rgba(55, 175, 247, 0.7) !important;
+}
+
+/* .command-palette .cursor-pointer {
+  color: white !important;
+  cursor: pointer !important;
+}
+.command-palette .cursor-pointer .text-gray-500 {
+  color: white !important;
+  cursor: pointer !important;
+} */
+
+.command-palette-list-item,
+.command-palette-list-item .text-gray-500 {
+  color: white !important;
+}
+
+.sheet {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.sheet-content {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }

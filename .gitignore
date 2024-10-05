@@ -1,7 +1,7 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # MidUI emitter.ts file
-lib/emitter.ts
+lib/emitter/components.ts
 
 # dependencies
 /node_modules
@@ -22,6 +22,7 @@ lib/emitter.ts
 # misc
 .DS_Store
 *.pem
+.idx/
 
 # debug
 npm-debug.log*

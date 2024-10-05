@@ -1,0 +1,20 @@
+<div id="progress-container" class="bg-gray-900 rounded-full flex items-start w-full md:w-1/2 h-3 md:h-5 overflow-hidden">
+    <div id="progress-bar" class="h-full w-full bg-[#1565C0] rounded-full transition-all"></div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        let progress = 15;
+        const progressBar = document.getElementById('progress-bar');
+
+        const timer = setInterval(() => {
+            // Update progress here
+            progress = Math.min(100, progress + 10);
+            progressBar.style.transform = `translateX(-${100 - progress}%)`;
+
+            if (progress === 100) {
+                clearInterval(timer);
+            }
+        }, 1500);
+    });
+</script>
