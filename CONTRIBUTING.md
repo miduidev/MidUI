@@ -4,6 +4,10 @@ Thanks for showing interest to contribute to MidUI ❤️, you rock!
 
 When it comes to open source, there are different ways you can contribute, all of which are valuable. Here's a few guidelines that should help you as you prepare your contribution.
 
+#### Next.js 14.2.3 <-> Tailwindcss 3.4.1
+
+### ❗Make sure you use linux based file system otherwise the parser will fail.
+
 ## Add new component to the collection
 
 To add new components you need to follow the steps
