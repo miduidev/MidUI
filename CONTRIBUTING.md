@@ -68,7 +68,27 @@ export default metadata;
 - After approving the edits your code will be merged into the repository.
 
 ## Edit MidUI Source
-We are working on a guide for this but you're free to open an issue for bugs/features.
+To edit the MidUI Source you need to understand how midui works.
+
+## The Core
+
+First if you look into `@/parser` you'll notice a `parser.ts` file when this parser runs it creates a static component dataset (which is imported by nextjs) buy going through all the files in `@/data` folder.
+This generates the `components.ts` file inside of `@/lib/emitter` folder.
+
+There are many utility functions to help parser.
+- `@/parser/schema.ts` this saves the zod configuration.
+- `@/utils/cli.ts` this helps to create new elements inside `@/data/components` folder.
+
+## The Frontend
+The MidUI frontend is using
+- Nextjs
+- Zod
+- SVGR
+- MDX
+- Tailwindcss
+- React-cmdk
+
+This file structure is using the nextjs v13 onwards `app` router.
 
 ## Updating the docs
 
